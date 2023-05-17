@@ -1,0 +1,32 @@
+<div class="main-page">
+    <div class="card simple-card login_card">
+        <div class="card-header">
+            <img src="../../../../../assets/images/logo.png" alt="" srcset="">
+            <h4 class="text-muted">Welcome {{displayName}}</h4>
+            <h3 >Create Your Namespace</h3>
+        </div>
+        <div class="card-body">
+            <form class="form-login">
+                <!-- start email div -->
+                <div class="emaildiv" >
+                    <mat-form-field class="example-full-width" appearance="outline" >
+                        <mat-label>Enter your NameSpace</mat-label>
+                        <input  [(ngModel)]="name" id="emailform" (keyup)="emailCondition = false" type="Enter your email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                                placeholder="Ex. Tanitlab">
+                        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                    
+                    </mat-form-field>
+                                </div>   
+                <!-- end email div -->
+                <div class="box-btn">
+                    <button mat-stroked-button class="back" routerLink="../login-with-google" >
+                        Back
+                    </button>  
+                    <button mat-flat-button class="next" (click)="createNameSpace()">
+                        Next
+                    </button>   
+                </div>
+              </form>
+        </div>
+    </div>
+</div>

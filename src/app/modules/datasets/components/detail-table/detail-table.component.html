@@ -1,0 +1,87 @@
+                <div class="table-responsive">
+                <table class="table table-user-information" style="margin-bottom: 0;">
+                    <tbody>
+                        <tr>        
+                            <td>
+                                <strong >
+                                    <span class=" span-color glyphicon glyphicon-asterisk "></span>
+                                    Table Name                                                
+                                </strong>
+                            </td>
+                            <td class="span-color">
+                                {{informations?.table_name}}
+                            </td>
+                        </tr>
+                        <tr>    
+                            <td>
+                                <strong>
+                                    <span class="glyphicon glyphicon-user  span-color"></span>    
+                                    Folder Name                                               
+                                </strong>
+                            </td>
+                            <td class="span-color">
+                                {{informations?.folder_name}}
+                            </td>
+                        </tr>
+                        <tr>        
+                            <td>
+                                <strong>
+                                    <span class="glyphicon glyphicon-cloud span-color"></span>  
+                                    Created By                                                
+                                </strong>
+                            </td>
+                            <td class="span-color">
+                                {{informations?.created_by}}  
+                            </td>
+                        </tr>
+    
+                        <tr>        
+                            <td>
+                                <strong>
+                                    <span class="glyphicon glyphicon-bookmark span-color"></span> 
+                                    Created On                                                
+                                </strong>
+                            </td>
+                            <td class="span-color">
+                                {{informations?.created_on  | date :'medium'}}
+                            </td>
+                        </tr>
+    
+    
+                        <tr>        
+                            <td>
+                                <strong>
+                                    <span class="glyphicon glyphicon-eye-open span-color"></span> 
+                                    Last Update                                            
+                                </strong>
+                            </td>
+                            <td class="span-color">
+                                {{informations?.last_update  | date :'medium'}}
+                            </td>
+                        </tr>
+                        <tr>        
+                            <td>
+                                <strong>
+                                    <span class="glyphicon glyphicon-envelope span-color"></span> 
+                                    Number Rows                                              
+                                </strong>
+                            </td>
+                            <td class="span-color">
+                                {{informations?.number_rows}} 
+                            </td>
+                        </tr>        
+                        <tr>        
+                            <td>
+                                <strong>
+                                    <span class="glyphicon glyphicon-envelope span-color"></span> 
+                                    Table Size                                              
+                                </strong>
+                            </td>
+                            <td class="span-color">
+                                {{informations?.table_size}} 
+                            </td>
+                        </tr>                                  
+                    </tbody>
+                </table>
+                </div>
+

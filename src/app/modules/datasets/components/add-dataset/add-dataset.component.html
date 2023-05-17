@@ -1,0 +1,124 @@
+<div class="div-main">
+  <div class="title-page">
+    <h2>Create New File</h2>
+  </div>
+
+  <div class="row d-flex justify-content-center py-4">
+    <div class="col-8 form-card">
+      <form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()" >
+        <mat-card class="shipping-card">
+          <mat-card-header>
+            <mat-card-title>Add New File </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+         
+            <div class="row">
+              <div class="col">
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-select placeholder="File Type" formControlName="fileFormat">
+                    <mat-option  value="csv">
+                     CSV
+                    </mat-option>
+                    <mat-option value="csv">
+                    XLS     
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="addressForm.controls['fileFormat'].hasError('required')">
+                    File Type <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <mat-form-field class="full-width" appearance="outline">
+                  <input matInput placeholder="destination" formControlName="destination">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-select placeholder="Folder Name" formControlName="folderName">
+                    <mat-option *ngFor="let folderN of folderNames"  value="{{folderN.name}}">
+                     {{folderN.name}}
+                    </mat-option>
+                   
+                  </mat-select>
+                  <mat-error *ngIf="addressForm.controls['fileFormat'].hasError('required')">
+                    File Name <strong>required</strong>
+                  </mat-error>
+
+                </mat-form-field>
+                <!-- <a (click)="openDialogAddUser()">+ create new folder</a> <br> -->
+                <br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <button mat-button mat-raised-button color="primary" type="button" (click)="hasUnitNumber = !hasUnitNumber">
+                    Advanced Options
+                  </button>
+                </div>
+              </div>
+              <br>
+            <div class="row" *ngIf="hasUnitNumber">
+              <div class="col">
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-select placeholder="Performance writing " formControlName="fileFormat">
+                    <mat-option  value="append">
+                     Append
+                    </mat-option>
+                    <mat-option value="overwrite" >
+                    Overwrite    
+                    </mat-option>
+                    <mat-option value="new table"  >
+                      New Table    
+                      </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="addressForm.controls['fileFormat'].hasError('required')">
+                    File Type <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row" *ngIf="hasUnitNumber">
+              <div class="col">
+                <mat-form-field class="full-width" appearance="outline" (change)="selectFiledDelimitor($event)">
+                  <mat-select placeholder="Field Delimitor" formControlName="fileFormat">
+                    <mat-option value="comma" >
+                     Comma
+                    </mat-option>
+                    <mat-option  value="tabulation">
+                  Tabulation
+                  </mat-option>
+                  <mat-option value="personnliazed" >
+                    Personnliazed
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="addressForm.controls['fileFormat'].hasError('required')">
+                    File Type <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row" *ngIf="hasUnitNumber">
+              <div class="col">
+                <mat-form-field class="full-width" appearance="outline">
+                  <input matInput #postalCode maxlength="15" placeholder="Header line to be ignored" type="number" formControlName="postalCode">
+                  <mat-hint align="end">{{postalCode.value.length}} / 15</mat-hint>
+                </mat-form-field>
+              </div>
+            </div>
+           
+          </mat-card-content>
+          <mat-card-actions align="end">
+            <button mat-raised-button color="primary" type="submit" class="btn-submit-form">Submit</button>
+          </mat-card-actions>
+        </mat-card>
+     </form>
+
+    </div>
+  </div>
+  
+</div>

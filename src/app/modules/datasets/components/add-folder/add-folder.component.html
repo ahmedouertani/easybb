@@ -1,0 +1,25 @@
+<div class="w-100 title-dialog">
+  <H2>Create New Folder</H2>
+  <hr>
+</div>
+
+<div mat-dialog-content class="dialog-user generat-form"  style="padding-top: 1rem;">
+  <form [formGroup]="addUserForm" #f="ngForm" >
+      <div class="row mb-1">
+              <mat-form-field appearance="outline">
+                  <mat-label>name</mat-label>
+                  <input formControlName="name"  name="name"  type="text" matInput placeholder="Folder Name" [ngClass]="{ 'is-invalid':submitted && addUserForm.get('name').invalid}" required />
+                  <div *ngIf="submitted && addUserForm.get('name').invalid"  class="invalid-feedback">
+                      <div *ngIf="addUserForm.controls['name'].errors.required">name is required.</div>
+                      <div *ngIf="addUserForm.controls['name'].errors.name" >Invalid name format.</div>
+                  </div>
+              </mat-form-field>
+          </div>
+  </form>
+</div>
+
+<div class="dialog-btn" mat-dialog-actions >
+  <button mat-stroked-button class="btn-cancel btn-dialog-action" color="warn" mat-dialog-close>Cancel</button>
+  <button mat-flat-button class="btn-save btn-dialog-action"  (click)="save(f)" color="primary">Save
+</button>
+</div>

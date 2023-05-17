@@ -1,0 +1,98 @@
+<div class="w-100 title-dialog">
+  <H2>Create New File</H2>
+  <hr>
+</div>
+
+<div mat-dialog-content class="dialog-user" >
+
+      <form [formGroup]="fileForm" #f="ngForm" id="signupForm">
+        <!-- Add New File -->
+        <mat-form-field class="full-width mb-1" appearance="outline">
+          <mat-label>Table Name</mat-label>
+          <input matInput  placeholder="Table name" type="text"
+            formControlName="table_name">
+      </mat-form-field>
+          <div class=" creat-account-div w-100 mat-form-ang mt-2">
+            <div class="upload-container">
+              <div class="upload-file" *ngIf="logoSelected === false">
+                <div class="btn-upload" (click)="logoUrl.click()" style="margin-right: 0.5rem;">
+                  <span class="span-btn" >
+                    <mat-icon>upload_file</mat-icon>
+                  </span>
+                  <span class="text-upload">Upload your data * </span>
+                </div>
+                <span class="text-upload type-file-text">(Allowed file type: csv.)</span>
+                <input #logoUrl hidden="true" type="file" onclick="this.value=null" name="avatar" accept=".csv"
+                  id="myFile" (change)="changeListener($event)" />
+              </div>
+              <div class="clear-file"  *ngIf="logoSelected === true"  >
+                <div class="box-file-selected">
+                  <button mat-icon-button class="clear-file-selected" *ngIf="logoSelected === true"
+                    (click)="logoSelected = false" style="width: 2rem ; height: 2rem;">
+                    <mat-icon>clear</mat-icon>
+                  </button>
+                  <img src="../../../../../assets/images/icon/csv.jpg" class="file-selected">
+
+                </div>
+                <p> You can change your file csv !</p>
+              </div>
+
+            </div>
+            <!-- <div class="logo-url">
+              <div class="box-file-selected" *ngIf="logoSelected === true">
+                <button mat-icon-button class="clear-file-selected" *ngIf="logoSelected === true"
+                  (click)="logoSelected = false">
+                  <mat-icon>clear</mat-icon>
+                </button>
+                <img src="../../../../../assets/images/icon/csv.jpg" class="file-selected">
+                <p> You can change your file csv !</p>
+              </div>
+              <div class="input-logo" *ngIf="logoSelected === false">
+                <input #logoUrl hidden="true" type="file" onclick="this.value=null" name="avatar" accept=".csv"
+                  id="myFile" (change)="changeListener($event)" />
+                <button mat-icon-button class="btn-upload-csv" (click)="logoUrl.click()">
+                  <mat-icon>description</mat-icon>
+                  <span>Upload your data </span>
+                  <span class="form-text text-muted">(Allowed file type: csv.)</span>
+                  <img src="../../../../../assets/images/icon/csv.png" class="icons-csv" alt="">
+                </button>
+              </div>
+            </div> -->
+          </div>
+          <mat-form-field class="full-width" appearance="outline" (change)="selectFiledDelimitor($event)">
+              <mat-label>Field Delimitor</mat-label>
+              <mat-select placeholder="Field Delimitor" formControlName="field_delimiter">
+                <mat-option value=",">
+                  Comma
+                </mat-option>
+                <mat-option value=" ">
+                  Tabulation
+                </mat-option>
+                <mat-option value="personnliazed">
+                  Personnliazed
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="fileForm.controls['field_delimiter'].hasError('required')">
+                File Type <strong>required</strong>
+              </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width mb-1" appearance="outline">
+              <mat-label>Header line to be ignored</mat-label>
+              <input matInput #postalCode maxlength="15" placeholder="Header line to be ignored" type="number"
+                formControlName="skip_leading_rows">
+              <mat-hint align="end">{{postalCode.value.length}} / 15</mat-hint>
+          </mat-form-field>
+      </form>
+    </div>
+
+
+<div class="dialog div-btn-google " mat-dialog-actions>
+  <button mat-stroked-button class="btn-cancel btn-dialog-action" color="warn" mat-dialog-close>Cancel</button>
+  <button mat-flat-button class="btn-save btn-dialog-action" type="submit" color="primary"
+    (click)="onSubmit()">
+    Save
+    <mat-icon *ngIf="showSpinner"><mat-spinner diameter="20" *ngIf="showSpinner">
+    </mat-spinner></mat-icon>
+  </button>
+</div>

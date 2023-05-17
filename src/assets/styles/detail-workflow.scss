@@ -1,0 +1,451 @@
+.main-detail{
+    .title-page{
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        position: absolute;
+        background: white;
+        z-index: 3;
+        h2{
+            width: 12rem !important;
+        }
+        .div-tabs{
+            width: 100%;
+            display: flex;
+            justify-content: end;
+            
+            .ul-tabs{
+                list-style-type:none; 
+                display: flex;
+                flex-direction: row;
+                padding: 0;
+                 margin: 0 ;
+                .li-tabs{
+                    font-size: 0.9rem;
+                    font-family: $fontPoppins;
+                    padding: 1rem 2rem ;
+                    color: $PrimaryColor1;
+                    display: flex;
+                    justify-content: center;
+                    justify-items: center;
+                    align-items: center;
+                    height: 4rem ;
+                    margin-left: 0.2rem;
+                    border-bottom: 0.15rem solid #ffffff;
+                    cursor: pointer;
+
+                }
+                .li-tabs:hover{
+                    color: $PrimaryColor1;
+                    border-bottom:0.15rem solid $PrimaryColor1;
+                }
+                .li-tabs.active{
+                    color: $PrimaryColor1;
+                    border-bottom:0.15rem solid $PrimaryColor1;
+                }
+            }
+        }
+    }
+    
+    .div-detail-workflow{
+        .row, h4, h3{
+            margin: 0;
+            padding: 0;
+        }
+
+        margin-top: 4rem;
+
+        .data-wokflow{
+            margin: 0;
+            padding: 0;
+            border-right: 0.1rem solid gainsboro;
+            min-height: calc(100vh - 8.2rem);
+            .header-data{
+                position: relative;
+                color: $PrimaryColor3;
+                font-family: $fontPoppins;
+                padding: 1rem 1rem;
+                display: flex;
+                align-items: center;
+                border-bottom: 0.01rem solid #8686862e;
+                .btn-hide-data{
+                    background-color: rgb(255, 255, 255) !important;
+                    margin-right: 0.5rem;
+                    box-shadow: none;
+                    right: 1rem;
+                    position: absolute;
+                    display: none;
+
+                    mat-icon{
+                        color: $PrimaryColor1;
+                    }
+                }
+                .btn-header-donnes{
+                border-radius: 50% !important;
+                background-color: rgb(201, 196, 196) !important;
+                margin-right: 0.5rem;
+                box-shadow: none;
+                        mat-icon{
+                            color: rgb(255, 255, 255);
+                        }
+                }
+            }
+            .body-data{
+                // padding:  0.5rem 0;
+                font-family: $fontPoppins;
+                .ul-data-workflow{
+                    list-style-type:none;
+                    padding: 0 !important;
+                    .li-data-workflow{
+                        padding:0.8rem 0rem 0.8rem 0rem !important;
+                        margin: 0;
+                        min-height: 5rem;
+                        overflow: hidden;
+                        transition: all 0.3s ease-out;
+
+                        .li-link-data, .li-h3-data{
+                            padding-left: 1rem;
+                        }
+                        .li-link-data{
+                            font-size: 0.9rem;
+                            color: $PrimaryColor1;
+                            cursor: pointer;
+                        }
+                        .li-h3-data{
+                            font-size: 1rem;
+                            color: $PrimaryColor3;
+                        }
+
+                        h4{
+                            font-size: 0.8rem;
+                            font-weight: 500;
+                            color: $PrimaryColor4;
+                            padding-left: 1rem;
+                        }
+
+                        .li-link-data:hover, .li-link-data:focus,  .li-link-data.active  {
+                            // background-color: $PrimaryColor2;
+                            border-left:0.15rem solid $PrimaryColor1;
+                        }
+                    }
+                    
+                
+                }
+            }
+         } 
+
+        .steps-workflow{
+            min-height: calc(100vh - 8.2rem);
+            .response-container{
+                .response-data-table{
+                    tr.mat-row {
+                        cursor: pointer;
+                    }
+                    td.mat-cell.new-bg{
+                        background: #eeeeee;
+                    }
+                }
+                .sidebard-response {
+                    width: 20rem;
+                    background: #f6f7f8;
+                    height: calc(100vh - 4rem);
+                    position: absolute;
+                    right: 0%;
+                    top: 0rem;
+                    box-shadow: rgb(0 0 0 / 17%) 2px 2px 3px 2px;
+                    z-index: 101;
+                    .header-sidebar{
+                        display: flex;
+                        padding: 0.5rem;
+                        position: relative;
+                        .btn-right-sidebar-response{
+                            border-radius: 50% !important;
+                            background-color: $PrimaryColor1;
+                            box-shadow: none;
+                            left: -2rem;
+                            top: 0.8rem;
+                            position: absolute;
+                            box-shadow: rgb(0 0 0 / 33%) -1px 1px 4px 1px;
+                        }
+                        .title-header-response{
+                            margin: auto;         
+                            h3{
+                                color: $PrimaryColor1;
+                                font-size: 1rem;
+                            }
+                            p{
+                                font-size: 0.8rem;
+                                color: $PrimaryColor4;
+                                padding: 0;
+                                margin: 0;
+                            }
+                        }
+                    }
+                    .body-sidebar{
+                        .tabs-sidebar{
+                            .mat-tab-label{
+                                min-width: 50%;
+                                color: $PrimaryColor1;   
+                            }
+                            .container-sidebar{
+                                overflow-y: auto !important;
+                                position: relative;
+                                height: calc(100vh - 11rem);
+                                    .steps-sidebar{
+                                        padding: 0.5rem 0;
+                                        .header-steps-sidebar{
+                                            display: flex;
+                                            .compteur-steps{
+                                                border-radius: 50% !important;
+                                                background-color: #77bb48;
+                                                color: white;
+                                                width: 2rem;
+                                                height: 2rem;
+                                                display: flex;
+                                                p{
+                                                    margin: auto;
+                                                }
+                                            }
+                                            .etat-steps{
+                                                margin-left: 1rem;
+                                                border-radius: 2.5rem;
+                                                background-color: #77bb48;
+                                                color: white;
+                                                height: 2rem;
+                                                display: flex;
+                                                padding: 0 1rem;
+                                                p{
+                                                    margin: auto ;
+                                                    padding: 0;
+                                                
+                                                }
+                                            }
+                                            .warning-steps{
+                                                margin-left: 1rem;
+                                                border-radius: 2.5rem;
+                                                background-color: red;
+                                                color: white;
+                                                height: 2rem;
+                                                display: flex;
+                                                padding: 0 1rem;
+                                                p{
+                                                    margin: auto ;
+                                                    padding: 0;
+                                                
+                                                }
+                                            }
+                                        }
+                                        .body-steps-sidebar{
+                                            padding: 1rem 0;
+                                            display: flex;
+                                            flex-direction: column;
+                                            .mail-reviewed, .date-reviewed, .remarks-steps{
+                                                margin-left: 3.6rem;
+                                                margin-bottom: 1rem;
+                                                span{
+                                                    color: $PrimaryColor3;
+                                                    font-size: 0.8rem;
+                                                }
+                                            }
+                                            .remarks-steps{
+                                                display: flex;
+                                                flex-direction: column;
+                                                .remarque{
+                                                    display: flex;
+                                                    justify-content: start;
+                                                    justify-items: center;
+                                                    align-items: center;
+                                                    max-width: 11rem;
+                                                    height: auto;
+                                                    border-radius: 0.41rem;
+                                                    padding: 1rem;
+                                                    border: 0.01rem solid #8686866e;
+                                                }
+                                            }
+                                        }
+                                    } 
+                                    .ul-content-workflow-sidebar{
+                                        list-style-type:none;
+                                        padding: 0 !important;
+                                        .li-data-workflow{
+                                            padding: 0.9rem 0rem 0rem 0rem !important;
+                                            margin: 0;
+                                            /* min-height: 5rem; */
+                                            overflow: hidden;
+                                            transition: all 0.3s ease-out;
+                    
+                                            .li-link-data, .li-h3-data{
+                                                padding-left: 1rem;
+                                            }
+                                            .li-link-data{
+                                                font-size: 0.9rem;
+                                                color: $PrimaryColor1;
+                                                cursor: pointer;
+                                            }
+                                            .li-h3-data{
+                                                font-size: 0.8rem;
+                                                color: #312f2f;
+                                            }
+                    
+                                            h4{
+                                                font-size: 0.8rem;
+                                                font-weight: 500;
+                                                color: #77bb48;
+                                                padding-left: 1rem;
+                                            }
+                                            .note{
+                                                display: flex;
+                                                justify-content: start;
+                                                justify-items: center;
+                                                align-items: center;
+                                                max-width: 15rem;
+                                                min-height: 6rem;
+                                                margin-left: 1rem;
+                                                height: auto;
+                                                border-radius: 0.41rem;
+                                                padding: 1rem;
+                                                border: 0.01rem solid #8686866e;
+                                            }
+                    
+                                            .li-link-data:hover, .li-link-data:focus,  .li-link-data.active  {
+                                                // background-color: $PrimaryColor2;
+                                                border-left:0.15rem solid $PrimaryColor1;
+                                            }
+                                        }
+                                        
+                                    
+                                    }
+                            }
+                           
+                        }
+                    }
+                }
+
+            }
+            .reports-container{
+                .task-row{
+                    .card{
+                        .card-footer{
+                            p{
+                                font-size: 0.9rem ;
+                            }
+                        }
+                    }
+                }
+            }
+            .settings-container{
+                .title-section-settings{
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 1rem 0.6rem;
+
+                    h3{
+                        font-size: 1rem;
+                        font-weight: bold;
+                        color: $PrimaryColor3;
+                    }
+                    .btn-slide{
+
+                        color:#77bb48;
+                        text-align: right;
+                        
+
+                        .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+                            background-color: #77bb48 !important;
+                          }
+              
+                          .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+                            background-color: #bee1a6 !important;
+                          }
+              
+                          .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+                            background-color: #77bb48 !important;
+                          }
+                    }
+                }
+                .description-settings{
+                    p{
+                        font-size: 0.8rem;
+
+                    }
+                }
+               
+            }
+            
+         }
+}
+    
+}
+
+
+@media only screen and (min-width: 200px) and (max-width: 767px) {
+    .main-detail{ 
+        .title-page{
+            padding: 0px 0.5rem;
+        }
+        .div-detail-workflow {
+            .data-wokflow{
+                 min-height: auto !important;
+                .header-data{
+                    .btn-hide-data {
+                       display: block !important;
+                    }
+                }
+                .body-data{
+                     .ul-data-workflow {
+                        display: flex;
+                        flex-wrap: wrap;
+                        margin: 0.5rem 1rem 0 ;
+                        
+                        .li-data-workflow{
+                           padding: 0.5rem 0.8rem 0.5rem 0.8rem !important;
+                           flex: 33%;
+                            .li-h3-data, h4 , .li-link-data{
+                                padding-left: 0;
+                            }
+                            .li-link-data:hover, .li-link-data:focus,  .li-link-data.active  {
+                                   border-left: none !important;
+                                // border-bottom: 0.15rem solid #396edb;
+                            }
+                          
+                            
+                           
+                        }
+                    }
+                }
+            }
+            .steps-workflow{
+                min-height: auto !important;
+            }
+            
+            
+        }
+            
+    }               
+                    
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1200px) {
+    .main-detail{ 
+       
+        .div-detail-workflow {
+           
+            .steps-workflow{
+               .reports-container{
+                .task-row{
+                    .card{
+                        .card-footer{
+                            padding: 12px 3px !important;
+                            p{
+                                font-size: 0.85rem !important;
+                            }
+                        }
+                    }
+                }
+            } 
+            }
+            
+        }
+            
+    }  
+}

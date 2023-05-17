@@ -1,0 +1,97 @@
+<div class=" div-main main_sector custom-div-liste-user scroll-main">
+  <!-- your code here -->
+  <div class="title-page d-flex">
+    <!-- <button mat-mini-fab class="btn-back">
+      <mat-icon>arrow_back_ios</mat-icon>
+    </button> -->
+    <h2>Files Content</h2>
+
+  </div>
+
+  <div class="row custom-div-liste-user">
+    <div class="table-with-filter">
+      <div class="menu-table-user">
+        <div class="search-table">
+          <input class="form-control form-control-light rounded-0 border-0 search-input-table" id="input" type="text"
+            placeholder="Search" aria-label="Search" [(ngModel)]="term" #input />
+        </div>
+        <div class="btn-action">
+          <button mat-button class="btn-menu-table" (click)="openDialogAddUser()">Add File</button>
+          <button mat-button [matMenuTriggerFor]="menu" class="btn-menu-table btn-color" *ngIf="showActions == true">
+            More options
+            <mat-icon>arrow_drop_down</mat-icon>
+          </button>
+
+          <mat-menu #menu="matMenu" #aboveMenu="matMenu" class="custom-mat-menu ">
+            <button mat-menu-item (click)="getTablesListByFolder(selectedItem.id)">
+              <mat-icon>edit</mat-icon>
+              <span>View</span>
+            </button>
+            <button mat-menu-item (click)="deleteFolder(selectedItem.id)">
+              <mat-icon>delete_outline</mat-icon>
+              <span>Remove</span>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+      <div class="tab-container">
+        <mat-tab-group>
+          <mat-tab label="FILES">
+      <div class="example-container datatable-container">
+        <div class="table-responsive tableFixHead">
+          <table class="table align-middle">
+            <thead>
+              <tr class="text-start text-muted text-uppercase">
+                <th class="min-w-125px">Name</th>
+                <th class="min-w-125px">Created On</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-400" *ngIf="loader == false">
+              <tr class="color" *ngFor="
+                      let item of list
+                      | paginate : {itemsPerPage: tableSize, currentPage: page }
+                      | filter:term ; let i = index
+                    " (click)="selectRow(item)"
+                    [ngClass]="{'selected': selectedRowIndex === i}"
+                    [ngClass]="{ 'selected-row': item === selectedItem  && tableFocused === true }"
+                    [ngClass]="{ selected: item.checked }">
+
+
+                <td >
+                    {{item.name}}
+
+                </td>
+                <td>
+                  {{ item.created_on }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ng-container *ngIf="loader == true">
+          <span class="indicator-progress loader-tn"
+            [style.display]="'block'">
+            Please wait...
+            <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+          </span>
+        </ng-container>
+      </div>
+
+    <div class="dataTables_paginate paging_simple_numbers">
+      <pagination-controls class="float-end" [responsive]="true" (pageChange)="onTableDataChange($event)">
+      </pagination-controls>
+    </div>
+          </mat-tab>
+          <mat-tab label="DETAILS">
+            <app-detail-table></app-detail-table>
+          </mat-tab>
+          <mat-tab label="SCHEMA" class="scheme">
+            <app-scheme-table></app-scheme-table>
+          </mat-tab>
+          <mat-tab label="OVERVIEW">
+            <app-overview-table></app-overview-table>
+          </mat-tab>
+        </mat-tab-group>
+    </div>
+  </div>
+  </div>

@@ -1,0 +1,54 @@
+<div class="container-fluid p-0">
+    <div class="row">
+        <div class="container-form">
+            <div class="name-space-main m-auto swing-in-top-fwd-auth ">
+                <!---->
+                <div class="mb-4 name-space select-account-div">
+                    <div class="card simple-card">
+                        <div class="card-header">
+                            <h3> {{currentUser.displayName}}'s projects</h3>
+                            <p>Select a project to login</p>
+                        </div>
+                        <div class="card-body">
+                            <mat-form-field appearance="outline">
+                                <mat-select (selectionChange)="accountSelected($event)" panelClass="select-acount"
+                                    placeholder="Select Project" #singleSelect>
+                                    <mat-option>
+                                        <ngx-mat-select-search [(ngModel)]="searchAccount"
+                                            placeholderLabel="Search project..."
+                                            noEntriesFoundLabel="'No project found'"></ngx-mat-select-search>
+                                    </mat-option>
+                                    <mat-option
+                                        *ngFor="let space of spaceName  | filter:searchAccount ; let index = index;"
+                                        [value]="space.id_namespace">
+                                        <div class="option d-flex">
+                                            <div class="account-select-info">
+                                                <span>{{space.namespace}}</span>
+                                            </div>
+                                        </div>
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+                            <div class="account-box">
+                                <div class="box-btn-Account">
+                                    <button mat-button class="btn-Account gen-btn btn-width"
+                                        routerLink="../choose-domaine">
+                                        Back
+                                    </button>
+                                    <button mat-button class="btn-Account gen-btn btn-lg btn-width"
+                                        (click)="goToProjectSpace()">
+                                        Next
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!---->
+
+            </div>
+        </div>
+    </div>
+</div>

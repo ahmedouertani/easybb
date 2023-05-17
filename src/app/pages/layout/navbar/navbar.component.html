@@ -1,0 +1,115 @@
+<mat-toolbar class="header">
+  <div class="nav-left">
+    <button class="btn-mobile-principal"
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+        <a class="navbar-brand me-0 px-3 fs-6 slide-in-blurred-top" [routerLink]="'liste-user'"  >
+          <img src="../../../../../assets/images/logo.png" class="logo" style="width: 150px; ">
+        </a>
+  </div>
+
+  <div class="navbar-nav custom-navbar">
+          <div class="nav-item text-nowrap nav-header px-0">
+            <!-- profile settings-->
+
+            <button mat-mini-fab routerLink="dataset/manage-account-service" class="btn-setting">
+              <mat-icon class="margin-top">settings</mat-icon>
+            </button>
+
+
+
+            <div class="dropdown px-md-3 px-xs-2 px-sm-2 m-auto ">
+              <a href="javascript:void(0)"
+                class=" text-dark text-decoration-none dropdown-toggle slide-in-blurred-top m-auto setting-dropdown"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <h2>{{nom}}</h2>
+                <div class="user-profil-img rounded-5 me-2">
+                  <h4 class="img-letter">{{firstLetter}}</h4>
+                </div>
+              </a>
+
+              <ul
+                class="dropdown-menu ul-profil dropdown-menu-perso dropdown-menu-light text-small shadow  slide-in-blurred-top" style="inset: none;">
+                <li>
+                  <div class="li-profil-img">
+
+                    <h3 *ngIf="currentUser">{{currentUser.displayName}}</h3>
+                  </div>
+                </li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+              <li class="setting-profil">
+                <a class="dropdown-item" (click)="goTo()" >
+                  <mat-icon>account_circle</mat-icon>
+                  <span>User Management</span>
+                </a>
+                  <a class="dropdown-item" (click)="logout()" >
+                    <mat-icon>logout</mat-icon>
+                   <span>Log Out</span>
+                  </a>
+              </li>
+              </ul>
+            </div>
+          </div>
+  </div>
+
+  </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav-container" autosize id="sidenav" >
+
+    <mat-sidenav #drawer class="sidenav menu swing-in-left-bck"
+                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+                [mode]="(isHandset$ | async) ? 'over' : 'side'"
+                [opened]="(isHandset$ | async) === false"
+                [ngClass]="{'new-width': isExpanded}" >
+
+
+      <!-- <app-menu-v2></app-menu-v2> -->
+      <!-- [ngClass]="{'isExpanded_css': !isExpanded}" -->
+
+      <nav class="nav-v2" >
+        <ul class="nav flex-column nav-pills">
+          <!-- start simple link -->
+
+            <!-- end simple link -->
+            <!-- start link with menu and sub menu -->
+
+              <li class="nav-item-v2 dropdown-v2" [ngClass]="{'active-link': menuDisplay}">
+
+                <a class="nav-link dropdown-toggle"  (click)="setMenuDisplay()" data-bs-toggle="dropdown1"   aria-expanded="false">
+                  <mat-icon mat-list-icon class="to_down" fontIcon="arrow_right"></mat-icon>
+                  <mat-icon>folder</mat-icon>
+                  <span>Folders List</span>
+                </a>
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item routerLink="dataset/folders-list">
+                    <mat-icon>list</mat-icon>
+                    <span>View All</span>
+                  </button>
+                  <button mat-menu-item (click)="deleteAll()">
+                    <mat-icon>delete</mat-icon>
+                    <span>Delete All</span>
+                  </button>
+                </mat-menu>
+                <div class="dropdown-menu-v2" *ngIf="menuDisplay == true">
+                 <a class="dropdown-item menu-g"   (click)="getTablesListById(folder.id)" *ngFor="let folder of foldersList"  routerLinkActive="active" > {{folder.name}} </a>
+                </div>
+            </li>
+          </ul>
+      </nav>
+    </mat-sidenav>
+
+    <mat-sidenav-content >
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>

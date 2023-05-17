@@ -1,0 +1,84 @@
+/****************Sub Menu*****************/
+
+.with-sub-item, .sub-list-item {
+  height: 3rem !important;
+  a{
+    font-family: $fontPoppins;
+    font-size: 0.85rem;
+    font-weight: 400;
+  }
+  mat-icon{
+    margin-right: 0.5rem !important;
+  }
+}
+
+.activeLink {
+  // background: #ecf0fa !important; 
+  background: #cad6f3 !important; 
+  border-top-right-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+  .a-sub-menu , .icon-sub, .icon-to-active, .sub-item , .sub-item-icon{
+    color: $PrimaryColor11; 
+  }
+  .a-sub-menu, .sub-item{
+    font-weight: 500;
+  }
+
+
+}
+
+.with-sub-item {
+  display: flex;
+  position: relative;
+  transition: all 0.3s ease-out;
+
+  .icon-sub{
+        position: absolute;
+        left: -0.3rem !important;
+        transition: 300ms ease-in-out;
+        transform: rotate(-90deg);
+        }
+  .icon-sub.rotated {
+        transform: rotate(0deg);
+        }      
+}
+
+.with-sub-item:hover, .sub-list-item:hover ,
+.with-sub-item.active, .sub-list-item.active  {
+  background: $PrimaryColor2 !important;
+  color: $PrimaryColor11;
+  border-top-right-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+  .a-sub-menu , .icon-sub, .icon-to-active, .sub-item , .sub-item-icon{
+    color: $PrimaryColor11;
+  }
+  .a-sub-menu, .sub-item {
+    font-weight: 500;
+  }
+}
+
+
+
+.BorderLeftMenu {
+  // border-left: 0.2rem solid $PrimaryColor11;
+  margin-top: 0.2rem;
+  // background-color: #ecf0fa;
+}
+
+.BorderLeftMenu:hover,
+.BorderLeftMenu:active,
+.BorderLeftMenu.active,
+.BorderLeftMenu:focus {
+  background: #cad6f3 !important;
+
+  .sub-item-icon {
+    background: none !important;
+  }
+}
+
+.BorderLeftMenu{
+  .sub-item-icon{
+    scale: 0.4;
+  }
+}
+

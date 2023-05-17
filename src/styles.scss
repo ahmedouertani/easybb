@@ -1,0 +1,725 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+
+/** Colors Tanitlab**/
+$colorBlueTanitlab:#5f93fb;
+$colorBlueSami:#2066ff;
+$colorRoseTanitlab: #e60060;
+$colorBlue2 : #1c54a7;
+$colorNoireBlue : #131d2d;
+$colorMoveSami : rgba(63, 81, 181, 0.99);
+$colorMoveSami2 : rgb(204 207 224 / 48%);
+$colorBlanc: #ffffff;
+$colorNoire: #000000;
+$bodyBgColor: #F3F6F9;
+$bodyBgColor2: #edf1f5;
+$coloNavToolbar : #bfbdbd;
+
+$degrade1:  rgb(35,33,37);
+$degrade2:  linear-gradient(90deg, rgba(35,33,37,1) 0%, rgba(10,24,45,1) 100%);
+$notificationColor: #aac0e2;
+
+
+
+/** Variable **/
+
+$PrimaryColor1: #467fff;
+$PrimaryColor2: #cad6f3;
+$PrimaryColor3: #a8a6a6; // Pour icon et border
+$PrimaryColor4: rgb(100, 109, 109); // Pour text liste notif
+
+// couleur kepler
+
+$PrimaryColor11: #1a4177;
+$PrimaryColor22: #1a417745;
+$PrimaryColorRoseKepler: #e60161;
+
+/*******Navbar && header ********/
+
+$coloChevron: $PrimaryColor1;
+$coloChevron_Hover: $colorRoseTanitlab;
+
+$btnMenuColor: $PrimaryColor11;
+$Bg_btnMenuColor: $PrimaryColor2;
+$btnMenuColor_Hover: $PrimaryColor1;
+$Bg_btnMenuColor_Hover: $PrimaryColor2;
+
+$bg_navbar: $colorBlanc;
+$headerBgColor : $colorBlanc;
+
+$fontPoppins :  'Poppins', sans-serif;
+$fontOswald : 'Oswald', sans-serif;
+
+/***Notification && message***/
+$iconeNotif: $PrimaryColor3;
+$notifColorBulle: $PrimaryColorRoseKepler;
+$titleNotif: $colorNoire;
+$iconeListeNotif: $PrimaryColor1;
+$titleListeNotif: #3b3a3a;
+$dateListeNotif: $PrimaryColor3;
+$textListeNotif: rgb(100, 109, 109);;
+$bgNotif_unread: rgba(202, 214, 243, 0.31);
+/*******Liste User*******/
+$btnActionColor: $PrimaryColor1;
+$btnActionColor_Hover: $PrimaryColor1;
+$bg_btnActionColor_Hover: $PrimaryColor2;
+
+$btn_headerTable: $PrimaryColor1;
+$listeTableColor_Hover: $PrimaryColor1;
+$bg_listeTableColor_Hover : #eeeeee;
+$checbox_listeTableColor: $PrimaryColor1;
+/*******view User*******/
+$nameUserColor: $PrimaryColor1;
+$titleInfoBoxUserColor: $PrimaryColor1;
+$textInfoBoxUserColor: #556472;
+$titleTasksColor: $PrimaryColor1;
+$bg_footerTasks: $PrimaryColor1;
+$iconeTaskColor: #868686;
+/***Card && Accordion***/
+$iconeCardColor: $PrimaryColor3;
+$titleCardColor: $PrimaryColor3;
+$linkCardColor: $PrimaryColor1;
+$chevronCardColor: $PrimaryColor3;
+$titleChevronCardColor: $PrimaryColor1;
+/********Timeline********/
+$circleColor: hsl(222deg, 100%, 64%);
+$VerticalLineColor: $PrimaryColor2;
+$borderBoxColor_Timeline: #467fff63;
+$TitleBoxColor_timeline: $PrimaryColor1;
+$dateColor_Timeline: $PrimaryColor1;
+$bg_dateColor_Timeline: rgb(202 214 243 / 63%);
+
+
+
+$dialogFont: $fontPoppins;
+$primaryFontApp: $fontPoppins;
+
+html, body { height: 100%; }
+body{
+    font-family: $fontPoppins !important;
+    margin: 0;
+}
+button{
+    border-radius: 0.3rem !important;
+}
+
+.custom-sidebar{
+     background: $colorBlueTanitlab !important;
+    color: $colorBlanc !important;
+}
+h1, h2, h3, h4, h5, h6, p, pre, span {
+  font-family: var($fontPoppins) !important;
+
+}
+body{
+  overflow: hidden;
+}
+mat-sidenav-content{
+  overflow: hidden !important;
+  height: calc(100% - 4rem) !important;
+}
+.row{
+  padding: 0;
+  margin: 0;
+}
+main{
+  padding-top: 5rem;
+}
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0 !important;
+}
+
+
+.div-main{
+  overflow: auto;
+  height: calc(100vh - 3.8rem) ;
+
+  .title-page {
+        padding: 1rem 0;
+        width: 100%;
+        margin: 0;
+        border-bottom: 0.01rem solid rgb(198 198 198 / 94%);
+        h2{
+          margin: auto 1rem;
+          font-size: 1rem;
+          color: #868686;
+        }
+    }
+
+  .btn-menu-close{
+    transition: 300ms ease-in-out;
+    transform: rotate(0deg);
+    margin-right: 0.5rem;
+  }
+  .btn-menu-close.rotated{
+    transform: rotate(180deg);
+  }
+
+  .title-with-btn{
+    display: flex;
+    justify-content: space-between;
+
+  }
+  .btn-actiontable{
+    margin-right: 1rem;
+  }
+  .btn-header-table{
+    mat-icon{
+      color: #5f93fb;
+    }
+  }
+  .btn-header-table:hover{
+    background-color: rgb(209 209 209 / 12%);
+  }
+
+  .editeur-script-css{
+    min-height: 17rem ;
+    background: #f0f0f0;
+  }
+
+  .editorContainer{
+    width: 100% !important;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 0.01rem solid #e0e0e0;
+    min-height: 17rem ;
+    .editorContainer{
+        width: 100%;
+        .monaco-editor{
+            width: 100% !important;
+        }
+
+    }
+    .monaco-editor, .monaco-editor-background, .monaco-editor .inputarea.ime-input {
+      background-color: #f0f0f0  !important;
+  }
+    .margin-view-overlays , canvas.minimap-decorations-layer{
+      background: #f0f0f0;
+      width: 134px !important;
+  }
+}
+
+  .content-main{
+    overflow: auto;
+  }
+
+
+}
+/***************btn******************/
+.btns-sumit {
+  display: flex;
+  justify-content: end;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  height: auto;
+  button{
+    margin-left: 0.5rem;
+  }
+}
+.gen-btn-div{
+  margin-right: 1rem;
+}
+  .gen-btn, .gen-btn-2{
+    text-align: right;
+    height: 2.5rem;
+    margin: auto 0;
+    font-weight: 500;
+  }
+  .gen-btn{
+    color: $PrimaryColor1;
+    background-color: $PrimaryColor2;
+  }
+  .gen-btn-2{
+    color: white;
+    background-color: $PrimaryColor1;
+  }
+  .gen-btn-2:hover{
+    font-weight: 500;
+    color: $PrimaryColor1;
+    background-color: $PrimaryColor2;
+  }
+  .gen-btn-3{
+    color: $PrimaryColor1;
+    background-color: $PrimaryColor2;
+  }
+  .gen-btn-3:hover{
+    background: rgba(239, 239, 239, 0.59);
+  }
+  .go-back{
+    height: 3rem;
+    color: white;
+    background-color: $PrimaryColor1;
+  }
+
+  /***************swal2-popup***************/
+  .swal2-popup{
+    font-family: $fontPoppins !important;
+    button{
+      border: 0 !important;
+      border-radius: 0.3rem;
+      min-width: 6rem;
+      box-shadow: none !important;
+    }
+    .swal2-confirm {
+      background-color:$PrimaryColor1 !important;
+    }
+    .swal1-deny{
+      outline: 0.01rem solid $PrimaryColor1;
+      background: white !important;
+      color: $PrimaryColor1 !important;
+    }
+  }
+  /*****************************************/
+ .div-btn-google {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: end;
+  .back-and-run-btns{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    .run-and-save-btns{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: end;
+      align-items: center;
+      margin-right: 1rem;
+    }
+  }
+
+  button{
+    min-width: 6rem !important;
+    margin: 0 0rem 1rem 1rem !important;
+  }
+  .btn-save{
+    background: $PrimaryColor1;
+    color: white !important;
+  }
+  .btn-cancel{
+    color: $PrimaryColor1;
+  }
+}
+
+ /**************btn-with-icon**************/
+ .btn-with-icon{
+  border-radius: 0.4rem !important;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    margin: 0;
+    align-items: center;
+    padding: 0;
+    justify-content: center;
+    border: none !important;
+ }
+ .btn-with-icon-add{
+  background: $PrimaryColor2;
+    mat-icon{
+      color: $PrimaryColor1;
+    }
+ }
+ .btn-with-icon-delete{
+  background: #f35d5d6b;
+    mat-icon{
+      color: #ff0000;
+    }
+ }
+ .btn-with-icon-add:hover{
+  background: $PrimaryColor1;
+    mat-icon{
+      color: white;
+    }
+ }
+ .btn-with-icon-delete:hover{
+  background: #ff0000;
+    mat-icon{
+      color: white;
+    }
+ }
+ .btn-with-icon:hover{
+  border: none !important;
+ }
+/****************Editor SQL******************/
+.editeur-sql{
+  margin-bottom: 1rem;
+  .label-editor {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+/****************ROLE CHIP******************/
+.role-chip {
+  display: inline-block;
+  padding: 0.15rem 0.75rem;
+  border-radius: 0.42rem;
+  font-size: 0.875rem;
+}
+.admin {
+  background-color: #FFE2E5;
+  color: #F64E60;
+}
+
+.supervisor {
+  background-color:#E1F0FF;
+  color: #3699FF;
+}
+
+.controller {
+  background-color: #C9F7F5;
+  color: #1BC5BD;
+}
+
+.explorer {
+  background-color: #e1d5f8;
+  color: #8950FC;
+}
+
+.data-scientist {
+  background-color: #FFF4DE;
+  color: #FFA800;
+}
+
+
+
+/****************Badge color******************/
+ .badge-color{
+  color: #fff !important;
+  background-color: #479e2e !important;
+  font-weight: 500 !important;
+  display: table-caption !important;
+}
+
+.badge-color-dang{
+  color: #fff !important;
+  background-color: #467fff !important;
+  font-weight: 500 !important;
+  display: table-caption !important;
+}
+
+.badge-color-paus{
+  color: #fff !important;
+  background-color: #bfbdbd !important;
+  font-weight: 500 !important;
+  display: table-caption !important;
+}
+/****************chips*********************/
+.chips{
+  border-radius: 0.9rem;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  font-size: 0.6rem;
+  padding: 0.35rem 0.6rem;
+  text-transform: uppercase;
+  font-family: $fontPoppins
+}
+
+.chips-primary{
+ background: $PrimaryColor1 !important;
+}
+.chips-danger{
+  background: rgb(234, 16, 38) !important
+}
+.chips-warning{
+  background: rgb(247 204 48) !important;
+}
+.chips-success{
+  background: rgb(44, 199, 44) !important;
+}
+.chips-info{
+  background: rgb(0, 229, 255) !important;
+}
+
+/*************splite*************/
+.container-splite{
+  width: 100%;
+  height: calc(100vh - 4rem);
+  .table-setting{
+    max-width: 100%;
+    max-height: 20rem;
+    overflow: auto;
+  }
+}
+
+/****************Tree*****************/
+.example-tree {
+  margin-top: 2.9rem;
+  background: #e7e7e7ab;
+  border-radius: 0.4rem;
+  padding: 0 1rem;
+  overflow: auto;
+
+  .mat-icon-button .mat-icon,
+  .mat-icon-button i {
+      color: $PrimaryColor1 !important;
+  }
+
+  mat-tree-node{
+      font-family: $fontPoppins;
+      min-height: 2.9rem !important;
+      // padding: 0 !important;
+    button{
+      font-family: $fontPoppins;
+      font-size: 0.9rem;
+      color: #8b8b8b;
+      font-weight: 400;
+    }
+      mat-icon{
+        color:  $PrimaryColor1;
+      }
+  }
+
+}
+/******************************************/
+.main-split{
+  overflow: hidden !important;
+  height: auto;
+}
+.splite-container-main{
+  width: 100%;
+  height:calc(100vh - 9.9rem) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.splite-container{
+  width: 100%;
+  height: 100vh;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.split-top, .split-bottom{
+  padding:0 0.5rem 0rem;
+  // padding:0 0.5rem 4rem;
+}
+.split-bottom{
+  margin-top: 1rem !important;
+ padding-top: 1rem;
+}
+.card-table-kep{
+  max-width: 100%;
+  margin: auto;
+  padding: 0rem;
+}
+
+/*********input material zero padding*******/
+.myselect_zero{
+  .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+}
+
+
+@import './assets/styles/animation.scss';
+@import './assets/styles/name-space.scss';
+@import './assets/styles/btn-css.scss';
+@import './assets/styles/auth.scss';
+@import './assets/styles/datatable.scss';
+@import './assets/styles/liste-user.scss';
+@import './assets/styles/dialog-user.scss';
+@import './assets/styles/view-user.scss';
+@import './assets/styles/card-and-accordion.scss';
+@import './assets/styles/notification.scss';
+@import './assets/styles/timeline.scss';
+@import './assets/styles/stepper.scss';
+@import './assets/styles/formulaire.scss';
+@import './assets/styles/workflow.scss';
+@import './assets/styles/login-google.scss';
+@import './assets/styles/detail-workflow.scss';
+@import './assets/styles/liste-datasets.scss';
+@import './assets/styles/pagewithsidebar.scss';
+@import './assets/styles/navbar.scss';
+@import './assets/styles/sidebar.scss';
+@import './assets/styles/menu-v2.scss';
+
+
+
+
+
+
+
+
+.gen-btn-div{
+  margin-right: 1rem;
+}
+  .gen-btn, .gen-btn-2{
+    text-align: right;
+    height: 2.5rem;
+    margin: auto 0;
+    font-weight: 500;
+  }
+  .gen-btn{
+    color: $PrimaryColor1;
+    background-color: $PrimaryColor2;
+  }
+  .gen-btn-2{
+    color: white;
+    background-color: $PrimaryColor1;
+  }
+  .gen-btn-2:hover{
+    font-weight: 500;
+    color: #efefef;
+    background-color: $PrimaryColor2;
+  }
+  .gen-btn-3{
+    color: $PrimaryColor1;
+    background-color: $PrimaryColor2;
+  }
+  .gen-btn-3:hover{
+    background: rgba(239, 239, 239, 0.59);
+  }
+  .go-back{
+    height: 3rem;
+    color: white;
+    background-color: $PrimaryColor1;
+  }
+   /*****************************************/
+ .div-btn-google {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: end;
+  button{
+    margin-left: 0.7rem;
+  }
+  .btn-save{
+    background: #467fff;
+    color: white;
+  }
+  .btn-cancel{
+    color: #467fff;
+  }
+}
+
+ /**************btn-with-icon**************/
+ .btn-with-icon{
+  border-radius: 0.4rem !important;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    margin: 0;
+    align-items: center;
+    padding: 0;
+    justify-content: center;
+    border: none !important;
+ }
+ .btn-with-icon-add{
+  background: $PrimaryColor2;
+    mat-icon{
+      color: $PrimaryColor1;
+    }
+ }
+ .btn-with-icon-delete{
+  background: #f35d5d6b;
+    mat-icon{
+      color: #ff0000;
+    }
+ }
+ .btn-with-icon-add:hover{
+  background: $PrimaryColor1;
+    mat-icon{
+      color: white;
+    }
+ }
+ .btn-with-icon-delete:hover{
+  background: #ff0000;
+    mat-icon{
+      color: white;
+    }
+ }
+ .btn-with-icon:hover{
+  border: none !important;
+ }
+
+  /****************chips*********************/
+.chips{
+  border-radius: 0.9rem;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  font-size: 0.6rem;
+  padding: 0.1rem 0.6rem;
+  text-transform: uppercase;
+  font-family: $fontPoppins
+}
+
+.chips-primary{
+//  background: #2475e6 !important;
+ background: #467fff !important;
+ color: #efefef !important;
+}
+.chips-danger{
+  background: rgb(234, 16, 38) !important
+}
+.chips-warning{
+  background: rgb(247 204 48) !important;
+}
+.chips-success{
+  background: rgb(44, 199, 44) !important;
+}
+.chips-info{
+  background: rgb(0, 229, 255) !important;
+}
+/********************************/
+.scroll-main {
+  height: calc(100vh - 4rem);
+  overflow: auto;
+  padding: 0.1rem;
+}
+.btn-back{
+  padding: 0rem  1rem 1rem;
+  button{
+    background: white !important;
+    box-shadow: none !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.01rem solid #e0e0e0;
+    mat-icon{
+      color: #467fff;
+      margin-left: 0.5rem;
+    }
+  }
+}
+/**************************************************************/
+/** Scroll Bar **/
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #c9c9c9;
+  border-radius: 0.5rem !important;
+
+}
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #a9a9a9;
+    border-radius: 0.5rem !important;
+
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  /************************************************/
+
+  @media only screen and (min-width: 200px) and (max-width: 768px) {
+    main{
+      padding-top: 1rem;
+    }
+  }

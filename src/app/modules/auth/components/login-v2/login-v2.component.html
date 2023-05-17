@@ -1,0 +1,67 @@
+<div class="main-page">
+    <div class="card simple-card login_card">
+        <div class="card-header">
+            <img src="../../../../../assets/images/tanitlabailogo.png" alt="" srcset="">
+            <h2 *ngIf="!hideDivEmail">Login to Tanitlab</h2>
+            <h2 *ngIf="hideDivEmail"> Hi {{userName}}</h2>
+            <span *ngIf="hideDivEmail" class="email_user">
+                <mat-icon>account_circle</mat-icon>
+                    
+                    
+                <h5>{{userMail}}</h5></span>
+        </div>
+        <div class="card-body">
+            <form class="form-login">
+                <!-- start email div -->
+                <div class="emaildiv" *ngIf="!hideDivEmail">
+                    <mat-form-field class="example-full-width" appearance="outline" >
+                        <mat-label>Enter your email</mat-label>
+                        <input id="emailform" (keyup)="emailCondition = false" type="Enter your email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                                placeholder="Ex. pat@example.com">
+                        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                            Please enter a valid email address
+                        </mat-error>
+                        <mat-error *ngIf="emailFormControl.hasError('required')">
+                            Email is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <span *ngIf="emailCondition">
+                        Email Email does not <strong>exist</strong> 
+                    </span>
+                    <h5>Forgot email address ?</h5>
+                </div>   
+                <!-- end email div -->
+                <!-- start password div -->
+                <div class="password_div" *ngIf="hideDivEmail">
+                   
+                    <mat-form-field class="example-full-width" appearance="outline" >
+                        <mat-label>Enter your password</mat-label>
+                        <input matInput id="passwordform" placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [formControl]="passwordFormControl" required>
+                        <mat-error *ngIf="passwordFormControl.hasError('required')">
+                            Password is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <span *ngIf="passwordCondition">
+                        Incorrect password 
+                    </span>
+                    <button mat-flat-button (click)="hide = !hide" >
+                        <mat-icon  >{{hide ? 'check_box_outline_blank' : 'check_box'}}</mat-icon> Show password
+                    </button>             
+                </div>    
+                <!-- end password div -->
+                <div class="submit_btn_div ">
+                    <div class="email_btn_div"  *ngIf="!hideDivEmail">
+                        <button mat-button color="primary" class="create_account">Create an account</button>
+                        <button mat-flat-button color="primary" class="next_btn" (click)="getEmail()">Next</button>
+                    </div>
+                    <div class="password_btn_div"  *ngIf="hideDivEmail">
+                        <button mat-button color="primary" class="create_account">Forgot password ?</button>
+                        <button mat-flat-button color="primary" class="next_btn" (click)="getPassword()">Next</button>
+                    </div>
+                   
+                </div>
+              </form>
+        </div>
+    </div>
+</div>

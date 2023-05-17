@@ -1,0 +1,184 @@
+<div class=" div-main main_sector custom-div-liste-user scroll-main">
+  <!-- your code here -->
+  <div class="title-page d-flex">
+    <!-- <button mat-mini-fab class="btn-back">
+      <mat-icon>arrow_back_ios</mat-icon>
+    </button> -->
+    <h2>Folder List</h2>
+
+  </div>
+
+  <div class="row custom-div-liste-user">
+    <div class="table-with-filter">
+      <div class="menu-table-user">
+        <div class="search-table">
+          <input class="form-control form-control-light rounded-0 border-0 search-input-table" id="input" type="text"
+            placeholder="Search" aria-label="Search" [(ngModel)]="term" #input />
+        </div>
+        <div class="btn-action">
+          <button mat-button class="btn-menu-table" (click)="openDialogAddUser()">Add new folder</button>
+          <button mat-button [matMenuTriggerFor]="menu" class="btn-menu-table btn-color" *ngIf="showActions == true">
+            More options
+            <mat-icon>arrow_drop_down</mat-icon>
+          </button>
+
+          <mat-menu #menu="matMenu" #aboveMenu="matMenu" class="custom-mat-menu ">
+            <button mat-menu-item (click)="getTablesListByFolder(selectedItem.id)">
+              <mat-icon>edit</mat-icon>
+              <span>View</span>
+            </button>
+            <button mat-menu-item (click)="deleteFolder(selectedItem.id)">
+              <mat-icon>delete_outline</mat-icon>
+              <span>Remove</span>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+      <div class="example-container datatable-container">
+        <div class="table-responsive tableFixHead">
+          <table class="table align-middle">
+            <thead>
+              <tr class="text-start text-muted text-uppercase">
+                <th class="min-w-125px">Name</th>
+                <th class="min-w-125px">Created On</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-400" *ngIf="loader == false">
+              <tr class="color" *ngFor="
+                      let item of list
+                      | paginate : {itemsPerPage: tableSize, currentPage: page }
+                      | filter:term ; let i = index
+                    " (click)="selectRow(item)"
+                    [ngClass]="{'selected': selectedRowIndex === i}"
+                    [ngClass]="{ 'selected-row': item === selectedItem  && tableFocused === true }"
+                    [ngClass]="{ selected: item.checked }">
+
+
+                <td >
+                    {{item.name}}
+
+                </td>
+                <td>
+                  {{ item.created_on }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ng-container *ngIf="loader == true">
+          <span class="indicator-progress loader-tn"
+            [style.display]="'block'">
+            Please wait...
+            <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+          </span>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="dataTables_paginate paging_simple_numbers">
+      <pagination-controls class="float-end" [responsive]="true" (pageChange)="onTableDataChange($event)">
+      </pagination-controls>
+    </div>
+  </div>
+
+
+  </div>
+  <!--  end code  -->
+  <!-- <div class="tabs-liste-datasets  row custom-div-liste-user">
+    <div class="user-list-container response-data-table">
+      <div class="menu-table-user" style="border: 0; outline: 0.01rem solid #e0e0e0;">
+        <div class="btn-actiontable">
+          <div class="btn-actiontable2">
+
+            <button mat-button class="btn-menu-table btn-color" (click)="openDialogAddUser()">
+              Add New Folder
+            </button>
+            <button mat-button [matMenuTriggerFor]="menu" *ngIf="showDelete == true" class="btn-menu-table btn-color">
+              More options
+              <mat-icon>arrow_drop_down</mat-icon>
+            </button>
+
+            <mat-menu #menu="matMenu" #aboveMenu="matMenu" class="custom-mat-menu ">
+
+              <button mat-menu-item (click)="deleteFolder(actionData)">
+                <mat-icon>delete</mat-icon>
+                <span>Remove</span>
+              </button>
+
+              <button mat-menu-item (click)="openDialogEditUser(actionData)">
+                <mat-icon>update</mat-icon>
+                <span>Update</span>
+              </button>
+
+            </mat-menu>
+          </div>
+        </div>
+        <div class="search-table">
+          <input class="form-control form-control-light  rounded-0 border-0 search-input-table" id="input" type="text"
+            placeholder="Search" aria-label="Search" (keyup)="applyFilter($event)" #input>
+        </div>
+      </div>
+      <div class="example-container">
+        <table mat-table [dataSource]="dataSource" *ngIf="showSpinner == false"
+          class="mat-elevation-z8 liste-user-table" tabindex="0">
+          <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+              <mat-checkbox (change)="$event ? toggleAllRows() : null" class="list-user-checkbox"
+                [checked]="selection.hasValue() && isAllSelected()"
+                [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+              </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <mat-checkbox (click)="$event.stopPropagation()" (change)="takeRow($event , row)"
+                (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)"
+                [aria-label]="checkboxLabel(row)" class="list-user-checkbox">
+              </mat-checkbox>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="Name">
+            <th mat-header-cell *matHeaderCellDef> Name <svg class="jss2029" focusable="false" viewBox="0 0 24 24"
+                aria-hidden="true" role="presentation" style="height: 13px; width: 13px;" title="Filter by id">
+                <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"></path>
+                <path fill="none" d="M0 0h24v24H0z"></path>
+              </svg> </th>
+            <td mat-cell *matCellDef="let element" (click)="getTablesListByFolder(element.id)"> {{element.name}}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Created On">
+            <th mat-header-cell *matHeaderCellDef> Created On <svg class="jss2029" focusable="false"
+                viewBox="0 0 24 24" aria-hidden="true" role="presentation" style="height: 13px; width: 13px;"
+                title="Filter by id">
+                <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"></path>
+                <path fill="none" d="M0 0h24v24H0z"></path>
+              </svg> </th>
+            <td mat-cell *matCellDef="let element"> {{element.created_on}} </td>
+          </ng-container>
+
+
+          <!-- Symbol Column -->
+          <!-- <ng-container matColumnDef="symbol">
+            <th mat-header-cell *matHeaderCellDef> Created at </th>
+            <td mat-cell *matCellDef="let element" (click)="etatSidebar()"> {{element.symbol}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+          </tr>
+        </table>
+        <div class="center spinner" *ngIf="showSpinner == true">
+          <div>
+            <mat-progress-spinner diameter=25 mode="indeterminate" color="#2173e8">
+
+            </mat-progress-spinner>
+          </div>
+          <div class="color-b">Please wait...</div>
+
+        </div>
+      </div>
+      <div>
+        <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+        </mat-paginator>
+      </div>
+    </div>
+  </div> -->

@@ -1,0 +1,133 @@
+.main-page{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    // background: aquamarine;
+    .login_card{
+        width: 22rem;
+        min-height: auto !important;
+        box-shadow: rgb(0 0 0 / 2%) 0px 1px 1px 0px, rgb(27 31 35 / 1%) 0px 0px 0px 1px;
+        
+        .card-header{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-items: center;
+            flex-direction: column;
+            .email_user{
+                width: 70%;
+                display: flex;
+                align-items: center;
+                border: 0.01rem solid #0000004f !important;
+                border-radius: 1rem;
+                padding: 0.3em;
+                color: grey;
+                mat-icon{
+                    color: #467fff;
+                    background: #cad6f3;
+                    border-radius: 50% !important;
+                }
+                h5{
+                    padding: 0;
+                    margin: auto;
+                }
+            }
+            img{
+                width: 12.5rem;
+                height: auto;
+                margin-bottom: 1rem;
+                margin-top: 1.5rem;
+            }
+            h2{
+                font-size: 1.2;
+                font-weight: 400;
+                font-family: 'Poppins', sans-serif;
+            }
+        }
+        .card-body{
+            position: relative;
+            .form-login{
+                position: relative;
+                min-height: 13rem;
+                height: auto;
+                .emaildiv{
+                    padding: 0.2rem 0;
+                    span{
+                        font-size: 0.6rem;
+                        color: red;
+                        margin-left: 0.6rem;
+                    }
+                    h5{
+                        color: #467fff;
+                        font-family: 'Poppins', sans-serif;
+                        font-weight: 600;
+                    }
+                }
+                .password_div{
+                    display: flex;
+                    flex-direction: column;
+                    span{
+                        font-size: 0.6rem;
+                        color: red;
+                        margin-left: 0.6rem;
+                    }
+                    button{
+                        padding: 0rem 0.2rem;
+                        color: #467fff; 
+                        font-size: 0.7rem !important;
+                        width: 7.7rem;
+                    }
+                }
+                .submit_btn_div, .email_btn_div, .password_btn_div{
+                    display: flex;
+                    justify-content: space-between ;
+                    flex-wrap: wrap;
+                    position: absolute;
+                    bottom: 0.5rem;
+                    left: 0;
+                    right: 0;
+                    .create_account{
+                        padding: 0rem 0.2rem;
+                        color: #467fff;
+                    }
+                    .next_btn{
+                        background: #467fff;
+                    }
+                }
+            }
+        }
+    }
+    .login-div{
+      .btn-log{   
+      transition: all 0.3s ease-out;    
+      border: 0 !important;
+      background-color: #ccd4e773;
+      padding: 0.4rem;
+      display: flex;
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
+      width: 100%; 
+       box-shadow: rgb(223 217 217 / 2%) 0px 1px 3px 0px, rgb(70 89 108 / 15%) 0px 0px 0px 1px;
+      font-family: "Poppins", sans-serif;
+      height: 3rem;
+              .icon-google {
+                  width: 2rem;
+                  margin-right: 1rem;
+              }
+              h4{
+                  padding: 0;
+                  margin: 0;
+                  color: #467fff;
+              }
+      }
+      .btn-log:hover,.btn-log:focus{
+          background-color: #cad6f39c;
+      }
+       
+  }
+  }
+  

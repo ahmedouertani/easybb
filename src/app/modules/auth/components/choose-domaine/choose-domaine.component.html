@@ -1,0 +1,66 @@
+<div class="main-page">
+    <div class="card simple-card login_card">
+        <div class="card-header">
+            <img src="../../../../../assets/images/logo.png" alt="" srcset="">
+            <h3 >Add Your Account Service</h3>
+        </div>
+        <div class="card-body">
+            <form class="form-login">
+                <div class="form-floating  mb-3">
+                    <div class="logo-url">
+                        <div class="box-file-selected" *ngIf="logoSelected === true">
+                            <button mat-icon-button class="clear-file-selected" *ngIf="logoSelected === true" (click)="logoSelected = false">
+                                <mat-icon>clear</mat-icon>
+                            </button>
+                            <img  src="../../../../../assets/images/icon/text-document-and-image.jpg" class="file-selected"> 
+                            <p> You can change your data if you want !</p>
+                        </div>
+                        <div class="input-logo" *ngIf="logoSelected === false">
+                            <input #logoUrl hidden="true" type="file" onclick="this.value=null" (change)="inputFile($event)"  accept=".json"   />
+                            <button mat-icon-button class="other-btn" (click)="logoUrl.click()">
+                                <mat-icon>file_copy</mat-icon> <span>Upload Your Account Service</span>
+                            </button>
+                        </div>
+                
+                    </div>
+                
+                    <h5 (click)="openDialogCredentInfos()" class="form-text text-muted text-dark">Click here for more informations.</h5>
+                    <br>
+                    <a routerLink="/dataset/folders-list" class="form-text text-muted text-dark">Skip</a>
+
+                
+                </div>
+                <div class="box-btn">
+                    <button mat-stroked-button class="back" routerLink="../create-domaine" >
+                        Back
+                    </button>  
+                    <button mat-flat-button class="next" (click)="createNameSpace()">
+                        Create
+                    </button>   
+                </div>
+              </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="form-floating  mb-3">
+    <div class="logo-url">
+        <div class="box-file-selected" *ngIf="logoSelected === true">
+            <button mat-icon-button class="clear-file-selected" *ngIf="logoSelected === true" (click)="logoSelected = false">
+                <mat-icon>clear</mat-icon>
+            </button>
+            <img  src="../../../../../assets/images/icon/text-document-and-image.jpg" class="file-selected"> 
+            <p> You can change your data if you want !</p>
+        </div>
+        <div class="input-logo" *ngIf="logoSelected === false">
+            <input #logoUrl hidden="true" type="file" onclick="this.value=null" (change)="inputFile($event)"  accept=".json"   />
+            <button mat-icon-button class="other-btn" (click)="logoUrl.click()">
+                <mat-icon>file_copy</mat-icon> <span>Upload Your Account Service</span>
+            </button>
+        </div>
+
+    </div>
+    <a (click)="openDialogCredentInfos()" class="form-text text-muted text-dark">Click here for more informations.</a>
+
+</div> -->

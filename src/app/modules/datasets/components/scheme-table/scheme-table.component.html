@@ -1,0 +1,55 @@
+<div class="main_sector custom-div-liste-user div-main " >
+  <div class="row custom-div-liste-user">
+    <div class="table-with-filter">
+      <div class="example-container datatable-container">
+        <div class="table-responsive tableFixHead">
+          <table class="table align-middle">
+            <thead>
+              <tr class="text-start text-muted text-uppercase">
+                <th class="min-w-125px">Name</th>
+                <th class="min-w-125px">Type</th>
+                <th class="min-w-125px">Mode</th>
+
+              </tr>
+            </thead>
+            <tbody class="text-gray-400" *ngIf="loader == false">
+              <tr class="color" *ngFor="
+                      let item of list
+                      | paginate : {itemsPerPage: tableSize, currentPage: page }
+                      | filter:term ; let i = index
+                    " (click)="selectRow(item)"
+                    [ngClass]="{'selected': selectedRowIndex === i}"
+                    [ngClass]="{ 'selected-row': item === selectedItem  && tableFocused === true }"
+                    [ngClass]="{ selected: item.checked }">
+                <td >
+                    {{item.name}}
+
+                </td>
+                <td>
+                  {{ item.type }}
+                </td>
+                <td>
+                  {{ item.mode }}
+                </td>
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ng-container *ngIf="loader == true">
+          <span class="indicator-progress loader-tn"
+            [style.display]="'block'">
+            Please wait...
+            <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+          </span>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="dataTables_paginate paging_simple_numbers">
+      <pagination-controls class="float-end" [responsive]="true" (pageChange)="onTableDataChange($event)">
+      </pagination-controls>
+    </div>
+  </div>
+
+

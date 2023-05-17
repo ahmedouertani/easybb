@@ -1,0 +1,116 @@
+<nav class="nav-v2" >
+  <ul class="nav flex-column nav-pills">
+    <!-- start simple link -->
+      <li class="nav-item" [routerLink]="'liste-user'" routerLinkActive="active">
+        <div class="link">
+          <mat-icon aria-hidden="false"  fontIcon="home"></mat-icon>
+          <a class="nav-link " >Home</a>  
+        </div> 
+      </li>
+      <!-- end simple link -->
+      <!-- start link with menu and sub menu -->
+        <li class="nav-item dropdown" >
+          <a class="nav-link dropdown-toggle " data-bs-toggle="dropdown"   aria-expanded="false">
+            <mat-icon mat-list-icon class="to_down" fontIcon="arrow_right"></mat-icon>
+            <mat-icon mat-list-icon  fontIcon="account_circle"></mat-icon>
+            <span>User management</span>
+          </a>
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button> 
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>add</mat-icon>
+              <span>Add</span>
+            </button>
+            <button mat-menu-item >
+              <mat-icon>delete</mat-icon>
+              <span>Delete</span>
+            </button>
+          </mat-menu>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" [routerLink]="'view-user'" routerLinkActive="active">View user</a>
+            <a class="dropdown-item" >Upadate user info</a>
+            <!-- divider -->
+            <!-- <div class="dropdown-divider"></div>  -->
+            <a class="dropdown-item" >Settings</a>
+          </div>
+      </li>
+      <!-- end link with menu and sub menu-->
+      <!-- start simple link -->
+      <li class="nav-item" [routerLink]="'liste-notification'" routerLinkActive="active">
+        <div class="link">
+          <mat-icon aria-hidden="false"  fontIcon="forward_to_inbox"></mat-icon>
+          <a class="nav-link " >Messages and notifications</a>  
+        </div> 
+      </li>
+      <!-- end simple link -->
+      <!-- start simple link -->
+      <li class="nav-item" [routerLink]="'liste-accordion'" routerLinkActive="active">
+        <div class="link">
+          <mat-icon aria-hidden="false"  fontIcon="stairs"></mat-icon>
+          <a class="nav-link " >Accordions</a>  
+        </div> 
+      </li>
+      <!-- end simple link -->
+      <!-- start simple link -->
+      <li class="nav-item" [routerLink]="'liste-card'" routerLinkActive="active">
+        <div class="link">
+          <mat-icon aria-hidden="false"  fontIcon="dashboard"></mat-icon>
+          <a class="nav-link " >Cards</a>  
+        </div> 
+      </li>
+      <!-- end simple link -->
+      <!-- start simple link -->
+      <li class="nav-item" [routerLink]="'timeline-vertical'" routerLinkActive="active">
+        <div class="link">
+          <mat-icon aria-hidden="false"  fontIcon="timeline"></mat-icon>
+          <a class="nav-link " >Timeline</a>  
+        </div> 
+      </li>
+      <!-- end simple link -->
+      <!-- start link with menu -->
+      <li class="nav-item dropdown" >
+        <a class="nav-link dropdown-toggle " data-bs-toggle="dropdown"   aria-expanded="false">
+          <mat-icon mat-list-icon class="to_down" fontIcon="arrow_right"></mat-icon>
+          <mat-icon mat-list-icon  fontIcon="123"></mat-icon>
+          <span>Steppers</span>
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" [routerLink]="'stepper-horizontal'" routerLinkActive="active">Stepper horizontal</a>
+          <a class="dropdown-item" [routerLink]="'stepper-vertical'" routerLinkActive="active">Stepper vertical</a>
+        </div>
+    </li>
+    <!-- end link with menu -->
+      <!-- start link with menu -->
+      <li class="nav-item dropdown" >
+        <a class="nav-link dropdown-toggle " data-bs-toggle="dropdown"   aria-expanded="false">
+          <mat-icon mat-list-icon class="to_down" fontIcon="arrow_right"></mat-icon>
+          <mat-icon mat-list-icon  fontIcon="check_box"></mat-icon>
+          <span>Forms</span>
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" [routerLink]="'form-app'" routerLinkActive="active">Angular Mat. Form</a>
+          <a class="dropdown-item" [routerLink]="'bootstrap-form'" routerLinkActive="active">Bootstrap Form</a>
+        </div>
+    </li>
+    <!-- end link with menu -->
+      <!-- start simple link -->
+      <li class="nav-item" [routerLink]="'workflow'" routerLinkActive="active">
+        <div class="link">
+          <mat-icon aria-hidden="false"  fontIcon="dashboard_customize"></mat-icon>
+          <a class="nav-link " >Home</a>  
+        </div> 
+      </li>
+      <!-- end simple link -->
+      <!-- start simple link -->
+      <li class="nav-item" [routerLink]="'tree-view'" routerLinkActive="active">
+        <div class="link">
+          <mat-icon aria-hidden="false"  fontIcon="drive_file_move"></mat-icon>
+          <a class="nav-link " >Home</a>  
+        </div> 
+      </li>
+      <!-- end simple link -->
+     
+    </ul>
+</nav>

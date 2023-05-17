@@ -1,0 +1,69 @@
+<div style="width: 20rem;">
+
+
+    <div class=" title-dialog">
+      <H2>Invite User</H2>
+      <hr>
+    </div>
+    <div mat-dialog-content class="dialog-user generat-form"  style="padding-top: 1rem;">
+      <form [formGroup]="addUserForm" #f="ngForm" >
+          <div class="row mb-1">
+                  <mat-form-field appearance="outline">
+                      <mat-label>Email</mat-label>
+                      <input formControlName="email"  name="email"  type="text" matInput placeholder="Email User" [ngClass]="{ 'is-invalid':submitted && addUserForm.get('email').invalid}" required />
+                      <div *ngIf="submitted && addUserForm.get('email').invalid"  class="invalid-feedback">
+                          <div *ngIf="addUserForm.controls['email'].errors.required">Email is required.</div>
+                          <div *ngIf="addUserForm.controls['email'].errors.email" >Invalid email format.</div>
+                      </div>
+                  </mat-form-field>
+              </div>
+                  <mat-form-field appearance="outline">
+                      <mat-label>Role</mat-label>
+                      <mat-select data-control="select2" data-hide-search="true" data-placeholder="Select an option"
+                          name="role" formControlName="role" [ngClass]="{ 'is-invalid':submitted && addUserForm.get('role').invalid}"  required>
+
+                          <mat-option value="admin" selected="true">Admin</mat-option>
+                          <mat-option value="user">User</mat-option>
+
+                      </mat-select>
+                      <div *ngIf="submitted && addUserForm.get('role').invalid"  class="invalid-feedback">
+                          <div *ngIf="addUserForm.controls['role'].errors.required">Role is required.</div>
+                      </div>
+                  </mat-form-field>
+      </form>
+  </div>
+
+  <div class="dialog-btn" mat-dialog-actions >
+      <button mat-stroked-button class="btn-cancel btn-dialog-action" color="warn" mat-dialog-close>Cancel</button>
+      <button mat-flat-button class="btn-save btn-dialog-action"  (click)="save(f)" color="primary">Save
+    </button>
+  </div>
+<!--
+    <div mat-dialog-content class="dialog-user" >
+      <form class="form">
+
+          <mat-form-field appearance="outline">
+            <mat-label>Set Your User Email..</mat-label>
+            <input matInput type="text" id="floatingInput" placeholder="Tap Folder Name" [(ngModel)]="email"
+              name="name">
+            </mat-form-field>
+              <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Choose a role</mat-label>
+              <mat-select [(ngModel)]="selectedValue" name="food">
+                <mat-option  value="admin">
+                  Admin
+                </mat-option>
+                <mat-option  value="user">
+                  User
+                </mat-option>
+              </mat-select>
+          </mat-form-field>
+      </form>
+    </div>
+
+  <div class="dialog div-btn-google " mat-dialog-actions>
+    <button mat-stroked-button class="btn-cancel btn-dialog-action" color="warn" mat-dialog-close>Cancel</button>
+    <button mat-flat-button class="btn-save btn-dialog-action" type="submit" color="primary"
+      (click)="submit()">Save</button>
+  </div> -->
+  </div>

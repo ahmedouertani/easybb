@@ -1,0 +1,218 @@
+.main-liste-datasets{
+    overflow: hidden;
+    .title-page{
+       position: relative;
+       display: flex;
+       justify-content: space-between;
+       .btn-hide-data{
+            background-color: rgb(255, 255, 255) !important;
+            margin-right: 0.5rem !important;
+            box-shadow: none !important;
+            display: none ;
+            mat-icon{
+                color: $PrimaryColor1;
+                }
+       }
+    }
+
+    .liste-datasets-block{
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        height: calc(100vh - 8rem);
+
+        .data-liste-datasets{
+            height: 100%;
+            overflow: auto;
+            margin: 0;
+            padding: 0;
+            border-right: 0.1rem solid gainsboro;
+            // height: calc(100vh - 8.5rem);
+            width: 17rem;
+                .title-info{
+                    height: 4.04rem;
+                    padding: 1rem;
+                    position: relative;
+                    border-bottom: 0.01rem solid rgb(100 109 109 / 22%);
+                    display: flex;
+                    justify-content: space-between;
+                        h3{
+                            font-size: 1.1rem;
+                            font-weight: 500;
+                            color: $PrimaryColor1; 
+                            text-transform: uppercase ;
+                            margin: auto 0;
+                        }
+                        button{
+                            background-color: rgb(255, 255, 255) !important;
+                            margin-right: 0.5rem !important;
+                            box-shadow: none !important;
+                            right: 1rem !important;
+                            top: 0.8rem;
+                            position: absolute !important;
+                            display: none !important;
+
+                            mat-icon{
+                                color: $PrimaryColor1;
+                            }
+                        }
+                }
+                .liste-folder-datasets{
+                    margin-top: 0.5rem;
+                    .ul-datasets{
+                        list-style-type:none;
+                        padding: 0 !important;
+                    .li-folder{
+                            padding: 0 0.5rem;
+                            height: 3rem;
+                            position: relative;
+                            display: flex;
+                            justify-content: space-between;
+                            .btn-folder{
+                                color: $PrimaryColor1;
+                                font-size: 1rem;
+                                text-align: left;
+                                mat-icon{
+                                    margin-right: 0.5rem;
+                                }
+                            }
+                            .btn-folder:hover {
+                                background: white !important;
+                            }
+                            .setting-folder{
+                                display: flex;
+                                height: 100%;
+                                display: flex;
+                                justify-content: center;
+                                justify-items: center;
+                                align-items: center;
+                                .btn-edit{
+                                    display: flex;
+                                    justify-content: center;
+                                    justify-items: center;
+                                    align-items: center;
+                                    color: $PrimaryColor1;
+                                    mat-icon{
+                                        margin: 0;
+                                    }
+                                }
+                            }
+                            
+                    }
+                    }
+                }
+         } 
+
+        .tabs-liste-datasets{
+            height: 100%;
+            overflow: auto;
+            width: calc(100% - 17rem);
+            padding: 0;
+                .liste-datasets-tabs{ 
+                    
+                    .mat-tab-disabled{
+                        margin: 0 0rem 0rem auto !important;
+                    }
+                    
+                    .mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination {
+                        margin: 0.01rem !important;
+                        height: 4rem;
+                        width: 3rem !important;
+                        border-radius: 0 !important;
+                    }
+                    .mat-tab-label{
+                    height: 4rem;  
+                    min-width: 6rem !important;
+                   
+                    }
+                            .content-tab{
+                                padding: 1rem;
+                                font-size: 13px !important;
+                            }
+                        }
+         }
+
+        .black-block{
+            display: none;
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background-color: black; 
+            opacity: 0.6;
+            z-index: 19;
+            cursor: pointer;
+        }
+        
+    }
+}
+.btn-folder.mat-button.mat-button-base {
+    background: rgb(255, 255, 255) !important;
+}
+.mat-menu-folder-datasets{
+    margin-left: 0.8rem !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 14.5rem !important;
+    box-shadow: rgba(0, 0, 0, 0.26) 0px 1px 4px !important;
+    .mat-menu-content:not(:empty){
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+}
+
+
+
+
+@media only screen and (min-width: 200px) and (max-width: 960px) {
+    .main-liste-datasets{
+        .title-page{
+            padding-left: 1rem !important;
+            .btn-hide-data{
+               
+                display: block !important;
+                mat-icon{
+                    color: $PrimaryColor1;
+                    }
+           }
+            }
+        
+        .liste-datasets-block{
+            .data-liste-datasets{  
+              position: absolute;
+              background-color: white;
+              z-index: 20;
+              display: block;
+               .title-info{
+                   
+                    button{
+                        display: block !important;
+    
+                        mat-icon{
+                            color: $PrimaryColor1;
+                        }
+                    }
+               }
+               .liste-folder-datasets{
+               
+                .ul-datasets{
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin: 0;
+                    li{
+                        flex: 33%;      
+                    }
+                    
+                
+                }
+               }
+             } 
+            .tabs-liste-datasets{  
+                width: 100% !important;
+               
+            }
+        }
+        .black-block{
+            display: block !important;
+        }
+    }
+}

@@ -1,0 +1,152 @@
+
+    body, html {
+        color: rgb(71, 71, 71);
+        font-size: 13px
+      }
+      md-toast {
+          position:absolute;
+          bottom: 0;
+          width:50%
+      }
+      md-toast.md-success-toast-theme .md-toast-content, md-toast .md-toast-content{
+          background-color: rgba(108,172,68,1);
+          color:#fafafa;
+      }
+      md-toast.md-warning-toast-theme .md-toast-content, md-toast .md-toast-content{
+          background-color: rgba(249,169,55,1);
+          color:#fafafa;
+      }
+      md-toast.md-error-toast-theme .md-toast-content, md-toast .md-toast-content{
+          background-color:rgba(226,25,9,1);
+          color:#fafafa;
+      }
+      md-toast.md-customerror-toast-theme .md-toast-content, md-toast .md-toast-content{
+          background-color:rgba(226,25,9,1);
+          color:#fafafa;
+      }
+      md-toast.md-info-toast-theme .md-toast-content, md-toast .md-toast-content{
+          background-color: #323232;
+          color:#fafafa;
+      }
+      
+      
+      
+      md-content.flex.md-default-theme {
+        background-color: #eee;
+      }
+      header{
+        margin-top: 20px;
+        h2, h3{
+          font-family:  'Poppins', sans-serif;
+          color: #95a5a6;
+        }
+        h3 {
+          font-size: 20px
+        }
+      }
+      md-input-container.md-icon-float>md-icon {
+          top: 30px !important;
+      }
+      md-input-container.md-icon-float {
+          margin-top: 0px !important;
+      }
+      md-input-container.md-icon-float.md-input-focused, md-input-container.md-icon-float.md-input-has-value {
+          margin-top: 0px !important;
+      }
+      label {
+          margin-bottom: 0px !important;
+      }
+      md-input-container > md-icon {
+          color: #555B56;
+      }
+      md-toast {
+        bottom: 0px !important;
+        width: 50%;
+        position: fixed;
+        z-index: 1000;
+      }    
+      .custom_circular_loader {
+        z-index: 1000;
+        position: absolute!important;
+        top: -20px;
+      } 
+  
+      md-tooltip {
+        max-width: 180px !important;
+        text-align: center !important;
+      }
+      /*a.md-button.md-default-theme.md-primary.md-raised, a.md-button.md-primary.md-raised, a.md-button.md-default-theme.md-primary.md-fab, a.md-button.md-primary.md-fab, .md-button.md-default-theme.md-primary.md-raised, .md-button.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab, .md-button.md-primary.md-fab {
+        color: rgba(255, 255, 255, 0.87);
+        background-color: rgb(139,195,74);
+      }*/
+      md-content.md-default-theme, md-content {
+        color: rgb(85, 91, 86);
+        background-color: rgb(250 250 250 / 0%)
+      }
+      .myIcons{
+        cursor:pointer
+      }
+      .editactionicon {
+        display: block;
+        width: 30px;
+        height: 30px;
+        background-color: #1a73e8;
+        padding: 7px;
+        margin: 0px;
+        border-radius: 4px;
+        font-size: 16px;
+        color: white;
+        cursor: pointer;
+      }
+      .deleteactionicon {
+        display: block;
+        width: 30px;
+        height: 30px;
+        background-color: #f44336;
+        padding: 7px;
+        margin: 0px;
+        border-radius: 4px;
+        font-size: 16px;
+        color: white;
+        cursor: pointer;
+      }
+      .md-table {
+        min-width: 100%;
+        border-collapse: collapse;
+      }
+      
+      .md-table tbody tr:hover, .md-table tbody tr:focus { 
+        background-color: #9e9e9e0a;
+      }
+      
+      th {
+        border-bottom: 1px solid rgb(230,230,230);
+        color: rgb(130,130,130);
+        text-align: left;
+        padding: 16px 16px 16px 8px;
+      }
+      
+      th a{
+        text-decoration: none;
+        color: inherit;
+      }
+      
+      td {
+        /*white-space: nowrap;*/
+        padding: 10px 16px 10px 8px;
+      }
+      .buttonPostion{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+      .caption {
+        font-size: 10px;
+        font-weight: 300;
+        line-height: 1.1;
+        color: #777;
+        text-transform: inherit;
+        letter-spacing: inherit;
+      }
+  
+  

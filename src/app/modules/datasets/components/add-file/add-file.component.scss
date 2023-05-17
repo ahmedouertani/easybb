@@ -1,0 +1,17 @@
+.next{
+    color: white;
+    background:#467fff;
+    margin-left: 11.8rem;
+}
+.back{
+    color: #467fff !important;
+    background-color: #efefef !important;
+}
+
+:host ::ng-deep .mat-spinner circle, .mat-spinner circle {   
+    stroke: #fff;
+}
+
+::ng-deep snack-bar-container simple-snack-bar .mat-simple-snackbar-action {
+    color: #efefef ;
+  }

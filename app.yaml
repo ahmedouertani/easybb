@@ -1,0 +1,22 @@
+runtime: nodejs16
+service: esaybq-frontend
+instance_class: F2
+
+env_variables: 
+  BUCKET_NAME: "easybq"
+
+
+handlers:
+  - url: /(.*\.[A-Za-z0-9]{1,4})$
+    static_files: dist/tanitlab2/\1
+    upload: dist/app/(.*\.[A-Za-z0-9]{1,4})$
+
+  - url: /(.*)$
+    static_files: dist/tanitlab2/index.html
+    upload: dist/tanitlab2/index.html
+  - url: /(.*\.(js|css|svg|png)(|\.map))$
+    static_files: dist/\1
+    upload: dist/(.*)(|\.map)
+  - url: /.*
+    static_files: dist/index.html
+    upload: dist/.*

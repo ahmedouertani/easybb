@@ -1,0 +1,121 @@
+<header class="p-3 mb-3 border-bottom navbar-version2">
+  <nav class="navbar navbar-expand-lg bg-light rounded" aria-label="Eleventh navbar example">
+    <div class="container-fluid">
+
+      <button class="navbar-toggler btn-menu2" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand me-0 px-3 fs-6 slide-in-blurred-top" href="#" [routerLink]="'liste-user'">
+        <img src="../../../../../assets/images/tanitlabailogo.png" class="logo">
+      </a>
+
+      <!-- datasets menu-->
+      <div class="dropdown btn-mneu2 px-md-3 px-xs-2 px-sm-2 m-auto ">
+        <!-- <h4 class=" text-muted fw-semibold fs-6">Welcome !</h4> -->
+        <a href="#"
+          class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle swing-in-top-bck m-auto"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Datasets
+        </a>
+        <ul
+          class="dropdown-menu ul-profil dropdown-menu-perso dropdown-menu-light text-small shadow  slide-in-blurred-top"
+          style="inset: none;">
+          <li>
+            <a class="dropdown-item" [routerLink]="'view-user'" href="#">
+              <span>Dataset 1</span>
+            </a>
+          </li>
+          <li><a class="dropdown-item " href="#">
+              <span>Dataset 2</span>
+            </a></li>
+          <li>
+            <a class="dropdown-item " (click)="logout()">
+              <span>Dataset 3</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="dropdown btn-mneu2 px-md-3 px-xs-2 px-sm-2 m-auto ">
+        <!-- <h4 class=" text-muted fw-semibold fs-6">Welcome !</h4> -->
+        <a href="#"
+          class="d-flex align-items-center text-dark text-decoration-none  m-auto"
+          aria-expanded="false">
+          User management
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse nav-search slide-in-blurred-top menu2" id="navbarsExample09">
+
+
+        <form role="search" class="search-form">
+          <input class="form-control search-input" type="search" placeholder="Search" aria-label="Search">
+        </form>
+
+      </div>
+
+      <div class="navbar-nav custom-navbar nav2 slide-in-blurred-top">
+        <div class="nav-item text-nowrap nav-header px-0">
+          <div class="gen-btn-div">
+
+            <button mat-button class="btn-Account gen-btn btn-width">
+            Go To GCP
+        </button>
+          </div>
+          <!-- profile settings-->
+          <div class="dropdown px-md-3 px-xs-2 px-sm-2 m-auto ">
+            <!-- <h4 class=" text-muted fw-semibold fs-6">Welcome !</h4> -->
+            <a href="#"
+              class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle slide-in-blurred-top m-auto"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <img class="user-profil-img rounded-5 me-2" src="{{currentUser?.photoURL}}">
+            </a>
+            <ul
+              class="dropdown-menu ul-profil dropdown-menu-perso dropdown-menu-light text-small shadow  slide-in-blurred-top"
+              style="inset: none;">
+              <li>
+                <div class="li-profil-img">
+                  <img src="{{currentUser?.photoURL}}" alt="" width="40" height="40"
+                    class="rounded me-2 color-change-2x1"> <br>
+                  {{currentUser?.displayName}}
+                </div>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <a class="dropdown-item" [routerLink]="'view-user'" href="#">
+                  <mat-icon>person</mat-icon>
+                  <span>User Account</span>
+                </a>
+              </li>
+              <li><a class="dropdown-item " href="#">
+                  <mat-icon>settings</mat-icon>
+                  <span>Settings</span>
+                </a></li>
+              <li>
+                <a class="dropdown-item " (click)="logout()">
+                  <mat-icon>logout</mat-icon>
+                  <span>Log Out</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+
+</header>
+
+<div class="container-fluid container-main2">
+  <div class="row">
+    <main class="col-md-12 ">
+      <!-- Add Content Here -->
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
