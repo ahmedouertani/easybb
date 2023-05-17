@@ -3,7 +3,7 @@ USER root
 RUN apt-get update -y && \
     apt-get -y upgrade 
 RUN apt-get install -y curl
-COPY easybb /easybb
+COPY . /easybb
 RUN curl -sL https://deb.nodesource.com/setup_16.x -o setup_14.sh && \
     sh ./setup_14.sh && \
     apt update -y && \
