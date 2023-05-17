@@ -18,7 +18,7 @@ pipeline {
             steps {
                 echo 'checking GitHub Repo'
                 git branch: 'main',
-                url: 'https://github.com/ahmedouertani/Easyb.git'
+                url: 'https://github.com/ahmedouertani/easybb.git'
             }
         }
 
@@ -67,7 +67,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    docker.image('bouhmiid/easybq').run('-p 4489:4200')
+                    docker.image('bouhmiid/easybq').run('-p 4411:4200')
                 }
             }
         }
