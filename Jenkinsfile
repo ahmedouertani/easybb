@@ -47,7 +47,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    def dockerImage = docker.build('bouhmiid/easybb', '.')
+                    def dockerImage = docker.build('bouhmiid/easybq', '.')
                 }
             }
         }
@@ -67,7 +67,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    docker.image('bouhmiid/easybb').run('-p 4411:4200')
+                    docker.image('bouhmiid/easybq').run('-p 4414:4200')
                 }
             }
         }
