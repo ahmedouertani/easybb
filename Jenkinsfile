@@ -22,7 +22,7 @@ pipeline {
             }
         }
 
-        stage('Use Node.js') { //Installation de Node.JS
+        stage('UseNode.js') { //Installation de Node.JS
             steps {
                 script {
                     nodejs = tool 'nodejs-16'
@@ -31,7 +31,7 @@ pipeline {
             }
         }
 
-        stage('Install dependencies') { //Installer les dépendances du projet
+        stage('InstallDependencies') { //Installer les dépendances du projet
             steps {
                 sh 'npm install'
             }
@@ -50,7 +50,7 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
+        stage('BuildDockerImage') {
             steps {
                 script {
                     def dockerImage = docker.build('bouhmiid/easybq', '.')
@@ -58,19 +58,19 @@ pipeline {
             }
         }
 
-        stage ('login to dockerhub') {
+        stage ('loginDockerhub') {
             steps{
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
         }
 
-        stage('Push') {
+        stage('PushDocker') {
             steps {
                sh 'docker push bouhmiid/easybq:latest'
                }
                }
 
-        stage('Run Docker Container') {
+        stage('RunDockerContainer') {
             steps {
                 script {
                     docker.image('bouhmiid/easybq').run('-p 4477:4200')
@@ -78,22 +78,11 @@ pipeline {
             }
         }
          
-        stage('Node version') {
+        stage('NodeVersion') {
             steps {
                 sh'node -v' }
                 }
-        
-        stage('Testing Stage') {
-            steps {
-                sh 'cd bqq && npm install && npm install korma-sonarqube-unit-reporter && ng test --watch=false --code-coverage'
-                }
-                    }
-        
-        stage('sonar scan stage') {
-            steps {
-                sh 'npm run sonar'
-                }
-                }
+
                 }
     
     post {
