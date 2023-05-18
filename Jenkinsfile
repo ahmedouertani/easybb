@@ -37,12 +37,12 @@ pipeline {
             }
         }
 
-                /*stage('ExcuteSonarQubeReport') { //Installer les dépendances du projet
+        stage('ExcuteSonarQubeReport') { //Installer les dépendances du projet
             steps {
                 //nodejs(nodeJSInstallationName: 'nodejs-14'){
                 sh 'npm run sonar'
             }
-        }*/
+        }
 
         stage('Build Docker Image') {
             steps {
@@ -71,47 +71,24 @@ pipeline {
                 }
             }
         }
-/*
-stage('Publish to Nexus Repository Manager') {
-    steps {
-        script {
-            def packageVersion = sh(script: "node -p \"require('./package.json').version\"", returnStdout: true).trim()
-            def artifactPath = "dist/*.tar.gz"
-
-            nexusArtifactUploader(
-                nexusVersion: 'nexus3',
-                protocol: 'http',
-                nexusUrl: 'http://192.168.1.207:8081',
-                groupId: 'com.example',
-                version: packageVersion,
-                repository: 'maven-central-repository',
-                credentialsId: 'NEXUS_CRED',
-                artifacts: [
-                    [artifactId: 'easyb',
-                    classifier: '',
-                    file: artifactPath,
-                    type: 'tar.gz']
-                ]
-            )
-        }
-    }
-}*/       
-stage('Node version') {
-    steps {
-        sh'node -v' }
-    }
-stage('Testing Stage') {
-    steps {
-        sh 'cd bqq && npm install && npm install korma-sonarqube-unit-reporter && ng test --watch=false --code-coverage'
-    }
-}
-
-    stage('sonar scan stage') {
-    steps {
-        sh 'npm run sonar'
-        }
-    }
-    }
+         
+        stage('Node version') {
+            steps {
+                sh'node -v' }
+                }
+        
+        stage('Testing Stage') {
+            steps {
+                sh 'cd bqq && npm install && npm install korma-sonarqube-unit-reporter && ng test --watch=false --code-coverage'
+                }
+                    }
+        
+        stage('sonar scan stage') {
+            steps {
+                sh 'npm run sonar'
+                }
+                }
+                }
     
     post {
         success {
