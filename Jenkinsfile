@@ -8,13 +8,13 @@ pipeline {
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "http://192.168.1.207:8081"
-        NEXUS_REPOSITORY = "maven-central-repository"
+        NEXUS_REPOSITORY = "raw-repo"
         NEXUS_CREDENTIAL_ID = "NEXUS_CRED"
     }
 
     stages {
 
-        stage('Checkout Git') {   //Récupération du code source
+        stage('CheckoutGit') {   //Récupération du code source
             steps {
                 echo 'checking GitHub Repo'
                 git branch: 'main',
