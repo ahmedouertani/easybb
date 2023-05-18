@@ -37,12 +37,12 @@ pipeline {
             }
         }
 
-        stage('ExcuteSonarQubeReport') { //Installer les dépendances du projet
+        /*stage('ExcuteSonarQubeReport') { //Installer les dépendances du projet
             steps {
                 //nodejs(nodeJSInstallationName: 'nodejs-14'){
                 sh 'npm run sonar'
             }
-        }
+        }*/
 
                 stage('UploadArtifactionNexus') { //Installer les dépendances du projet
             steps {
@@ -50,7 +50,7 @@ pipeline {
             }
         }
 
-        stage('BuildDockerImage') {
+        /*stage('BuildDockerImage') {
             steps {
                 script {
                     def dockerImage = docker.build('bouhmiid/easybq', '.')
@@ -76,7 +76,7 @@ pipeline {
                     docker.image('bouhmiid/easybq').run('-p 4477:4200')
                 }
             }
-        }
+        }*/
          
         stage('NodeVersion') {
             steps {
