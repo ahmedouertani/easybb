@@ -44,6 +44,12 @@ pipeline {
             }
         }
 
+                stage('UploadArtifactionNexus') { //Installer les dépendances du projet
+            steps {
+                sh 'npm publish'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 script {
