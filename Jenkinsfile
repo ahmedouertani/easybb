@@ -7,7 +7,7 @@ pipeline {
 
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
-        NEXUS_URL = "http://192.168.1.207:8081"
+        NEXUS_URL = "http://192.168.1.207:8081/repository/raw-repo/"
         NEXUS_REPOSITORY = "raw-repo"
         NEXUS_CREDENTIAL_ID = "NEXUS_CRED"
     }
@@ -44,7 +44,13 @@ pipeline {
             }
         }*/
 
-                stage('UploadArtifactionNexus') { //Installer les dépendances du projet
+        stage('Build') {
+            steps {    
+                sh 'ng build'
+                }
+                }
+
+        stage('UploadArtifactionNexus') { //Installer les dépendances du projet
             steps {
                 sh 'npm publish'
             }
