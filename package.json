@@ -78,6 +78,6 @@
   },
 
   "publishConfig": {
-    "registry": "http://192.168.1.105:8081/repository/raw-repo/"
+    "registry": "http://192.168.1.101:8081/repository/raw-repo/"
   }
 }
