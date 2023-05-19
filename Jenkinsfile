@@ -52,8 +52,13 @@ pipeline {
 
         stage('UploadArtifactionNexus') { //Installer les dépendances du projet
             steps {
-                sh 'npm publish'
-            }
+        sh 'npm config set registry http://192.168.1.105:8081/repository/raw-repo/'
+        sh 'npm install'  // Installation des dépendances du projet
+        sh 'ng build'  // Construction du projet en mode production
+
+        // Upload des artefacts dans Nexus
+        sh 'npm publish --registry http://192.168.1.105:8081/repository/raw-repo/ --access public'
+    }
         }
 
         /*stage('BuildDockerImage') {
