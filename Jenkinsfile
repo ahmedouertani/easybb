@@ -50,13 +50,13 @@ pipeline {
                 }
                 }
 
-        /*stage('UploadArtifactionNexus') { //Installer les dépendances du projet
+        stage('UploadArtifactionNexus') { //Installer les dépendances du projet
             steps {
                 sh 'npm publish'
             }
-        }*/
+        }
 
-        stage('BuildDockerImage') {
+        /*stage('BuildDockerImage') {
             steps {
                 script {
                     def dockerImage = docker.build('bouhmiid/easybq', '.')
@@ -82,7 +82,7 @@ pipeline {
                     docker.image('bouhmiid/easybq').run('-p 4451:4200')
                 }
             }
-        }
+        }*/
          
         stage('NodeVersion') {
             steps {
