@@ -43,14 +43,7 @@ pipeline {
                 sh 'npm run sonar'
             }
         }*/
-
-        stage('adduser') { //Installer les dépendances du projet
-            steps {
-                sh 'npm adduser --registry=http://192.168.1.105:8081/repository/raw-repo/ --always-auth --auth=legacy'
-
-            }
-        }
-
+        
         stage('Build') {
             steps {    
                 sh 'ng build'
