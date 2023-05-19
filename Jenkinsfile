@@ -53,6 +53,9 @@ pipeline {
         stage('UploadArtifactionNexus') { //Installer les dépendances du projet
             steps {
         sh 'npm config set registry http://192.168.1.105:8081/repository/raw-repo/'
+          withCredentials([usernamePassword(credentialsId: 'nexustanitlab', passwordVariable: 'bouhmidenaey97', usernameVariable: 'admin')]) {
+            sh 'npm config set _auth $(echo -n $NEXUS_USERNAME:$NEXUS_PASSWORD | base64)'  // Encodage des informations d'authentification en base64
+        }
         sh 'npm install'  // Installation des dépendances du projet
         sh 'ng build'  // Construction du projet en mode production
 
