@@ -7,7 +7,7 @@ pipeline {
 
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
-        NEXUS_URL = "http://192.168.1.207:8081/repository/raw-repo/"
+        NEXUS_URL = "http://192.168.1.207:8081"
         NEXUS_REPOSITORY = "raw-repo"
         NEXUS_CREDENTIAL_ID = "NEXUS_CRED"
     }
@@ -43,6 +43,13 @@ pipeline {
                 sh 'npm run sonar'
             }
         }*/
+
+        stage('adduser') { //Installer les dépendances du projet
+            steps {
+                sh 'npm adduser --registry=http://192.168.1.207:8081/repository/raw-repo/ --always-auth --auth=_authToken=YWRtaW46cGFzc3dvcmQ=
+'
+            }
+        }
 
         stage('Build') {
             steps {    
