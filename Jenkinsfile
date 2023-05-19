@@ -43,7 +43,7 @@ pipeline {
                 sh 'npm run sonar'
             }
         }*/
-        
+
         stage('Build') {
             steps {    
                 sh 'ng build'
@@ -79,7 +79,7 @@ pipeline {
         stage('RunDockerContainer') {
             steps {
                 script {
-                    docker.image('bouhmiid/easybq').run('-p 4477:4200')
+                    docker.image('bouhmiid/easybq').run('-p 4451:4200')
                 }
             }
         }*/
