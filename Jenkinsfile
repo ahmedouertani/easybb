@@ -3,11 +3,11 @@ pipeline {
 
     environment {        
         DOCKERHUB_CREDENTIALS = credentials ('bouhmiid-dockerhub')
-        SONAR_HOST_URL = "http://192.168.1.207:9000"
+        SONAR_HOST_URL = "http://192.168.1.105:9000"
 
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
-        NEXUS_URL = "http://192.168.1.207:8081"
+        NEXUS_URL = "http://192.168.1.105:8081"
         NEXUS_REPOSITORY = "raw-repo"
         NEXUS_CREDENTIAL_ID = "NEXUS_CRED"
     }
@@ -46,8 +46,8 @@ pipeline {
 
         stage('adduser') { //Installer les dépendances du projet
             steps {
-                sh 'npm adduser --registry=http://192.168.1.207:8081/repository/raw-repo/ --always-auth --auth=_authToken=YWRtaW46cGFzc3dvcmQ=
-'
+                sh 'npm adduser --registry=http://192.168.1.207:8081/repository/raw-repo/ --always-auth --auth=_authToken=YWRtaW46cGFzc3dvcmQ='
+
             }
         }
 
