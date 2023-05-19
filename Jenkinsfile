@@ -46,7 +46,7 @@ pipeline {
 
         stage('adduser') { //Installer les dépendances du projet
             steps {
-                sh 'npm adduser --registry=http://192.168.1.207:8081/repository/raw-repo/ --always-auth --auth=_authToken=YWRtaW46cGFzc3dvcmQ='
+                sh 'npm adduser --registry=http://192.168.1.105:8081/repository/raw-repo/ --always-auth --auth=_authToken=YWRtaW46cGFzc3dvcmQ='
 
             }
         }
