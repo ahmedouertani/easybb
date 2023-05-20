@@ -54,7 +54,7 @@ pipeline {
             steps {
         sh 'npm config set registry http://192.168.1.101:8081/repository/raw-repo/'
           withCredentials([usernamePassword(credentialsId: 'nexustanitlab', passwordVariable: 'bouhmidenaey97', usernameVariable: 'admin')]) {
-            sh 'npm config set _auth $(echo -n $NEXUS_USERNAME:$NEXUS_PASSWORD | base64)'  // Encodage des informations d'authentification en base64
+            sh 'npm login --registry=http://192.168.1.101:8081/repository/raw-repo/ --scope=@my-scope --always-auth -u $NEXUS_USERNAME -p $NEXUS_PASSWORD'  // Connexion à Nexus avec les informations d'authentification masquées
         }
         sh 'npm install'  // Installation des dépendances du projet
         sh 'ng build'  // Construction du projet en mode production
