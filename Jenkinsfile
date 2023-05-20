@@ -3,11 +3,11 @@ pipeline {
 
     environment {        
         DOCKERHUB_CREDENTIALS = credentials ('bouhmiid-dockerhub')
-        SONAR_HOST_URL = "http://192.168.1.101:9000"
+        SONAR_HOST_URL = "http://192.168.1.102:9000"
 
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
-        NEXUS_URL = "http://192.168.1.101:8081"
+        NEXUS_URL = "http://192.168.1.102:8081"
         NEXUS_REPOSITORY = "raw-repo"
         NEXUS_CREDENTIAL_ID = "NEXUS_CRED"
     }
@@ -52,15 +52,15 @@ pipeline {
 
         stage('UploadArtifactionNexus') { //Installer les dépendances du projet
             steps {
-        sh 'npm config set registry http://192.168.1.101:8081/repository/raw-repo/'
+        sh 'npm config set registry http://192.168.1.102:8081/repository/raw-repo/'
           withCredentials([usernamePassword(credentialsId: 'nexustanitlab', passwordVariable: 'bouhmidenaey97', usernameVariable: 'admin')]) {
-            sh 'npm login --registry=http://192.168.1.101:8081/repository/raw-repo/ --scope=@my-scope --always-auth -u $NEXUS_USERNAME -p $NEXUS_PASSWORD'  // Connexion à Nexus avec les informations d'authentification masquées
+            sh 'npm login --registry=http://192.168.1.102:8081/repository/raw-repo/ --scope=@my-scope --always-auth -u $NEXUS_USERNAME -p $NEXUS_PASSWORD'  // Connexion à Nexus avec les informations d'authentification masquées
         }
         sh 'npm install'  // Installation des dépendances du projet
         sh 'ng build'  // Construction du projet en mode production
 
         // Upload des artefacts dans Nexus
-        sh 'npm publish --registry http://192.168.1.101:8081/repository/raw-repo/ --access public'
+        sh 'npm publish --registry http://192.168.1.102:8081/repository/raw-repo/ --access public'
     }
         }
 
