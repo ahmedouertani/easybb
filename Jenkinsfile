@@ -50,17 +50,17 @@ pipeline {
                 }
                 }
 
-        stage('UploadArtifactionNexus') { //Installer les dépendances du projet
-            steps {
+        stage('UploadArtifactionNexus') {
+    steps {
         sh 'npm config set registry http://192.168.0.142:8081/repository/raw-repo/'
-          withCredentials([usernamePassword(credentialsId: 'nexustanitlab', passwordVariable: 'bouhmidenaey97', usernameVariable: 'admin')]) {
-            sh 'npm login --registry=http://192.168.0.142:8081/repository/raw-repo/ --scope=@my-scope --always-auth -u $admin -p $bouhmidenaey97'  // Connexion à Nexus avec les informations d'authentification masquées
+        withCredentials([usernamePassword(credentialsId: 'nexustanitlab', passwordVariable: 'bouhmidenaey97', usernameVariable: 'admin')]) {
+            sh "npm login --registry=http://192.168.0.142:8081/repository/raw-repo/ --scope=@my-scope --always-auth -u $admin -p $bouhmidenaey97"  // Connexion à Nexus avec les informations d'authentification masquées
         }
-
         // Upload des artefacts dans Nexus
         sh 'npm publish --registry http://192.168.0.142:8081/repository/raw-repo/ --access public'
     }
-        }
+}
+
 
         /*stage('BuildDockerImage') {
             steps {
