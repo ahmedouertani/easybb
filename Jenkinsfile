@@ -53,7 +53,7 @@ pipeline {
         stage('UploadArtifactionNexus') {
     steps {
         sh 'npm config set registry http://192.168.1.105:8081/repository/raw-repo/'
-        withCredentials([usernamePassword(credentialsId: 'nexustanitlab', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
+        withCredentials([usernamePassword(credentialsId: 'nexustanitlab', passwordVariable: 'bouhmidenaey97', usernameVariable: 'admin')]) {
             sh "npm login --registry=http://192.168.1.105:8081/repository/raw-repo/ --scope=@my-scope --always-auth -u ${env.NEXUS_USERNAME} -p ${env.NEXUS_PASSWORD}"  // Connexion à Nexus avec les informations d'authentification masquées
         }
         // Upload des artefacts dans Nexus
