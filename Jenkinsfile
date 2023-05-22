@@ -53,9 +53,9 @@ pipeline {
 stage('UploadArtifactNexus') {
     steps {
         // Reste des étapes de déploiement des artefacts
-        sh 'npm config set registry http://192.168.1.105:8081'
+        /*sh 'npm config set registry http://192.168.1.105:8081'
         sh 'npm install'
-        sh 'npm run build'
+        sh 'npm run build'*/
         sh 'npm publish --access public'
     }
 }
