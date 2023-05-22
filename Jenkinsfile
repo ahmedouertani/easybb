@@ -56,9 +56,12 @@ stage('UploadArtifactNexus') {
         /*sh 'npm config set registry http://192.168.1.105:8081'
         sh 'npm install'
         sh 'npm run build'*/
+        sh "npm config set _authToken=[nexustanitlab] --registry=http://192.168.1.105:8081"
+
         sh 'npm publish --access public'
     }
 }
+
 
 
         /*stage('BuildDockerImage') {
