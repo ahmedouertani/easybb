@@ -52,15 +52,14 @@ pipeline {
 
 stage('UploadArtifactNexus') {
     steps {
-        // Configuration du registre Nexus dans le fichier .npmrc
-        sh 'echo "registry=http://192.168.1.105:8081/repository/raw-repo/" > .npmrc'
-
         // Reste des étapes de déploiement des artefacts
+        sh 'npm config set registry http://192.168.1.105:8081/repository/raw-repo/'
         sh 'npm install'
         sh 'npm run build'
         sh 'npm publish --access public'
     }
 }
+
 
         /*stage('BuildDockerImage') {
             steps {
