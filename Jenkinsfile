@@ -82,7 +82,7 @@ stage('UploadArtifactNexusNPM') {
 
 
 
-        /*stage('BuildDockerImage') {
+        stage('BuildDockerImage') {
             steps {
                 script {
                     def dockerImage = docker.build('bouhmiid/easybq', '.')
@@ -105,10 +105,10 @@ stage('UploadArtifactNexusNPM') {
         stage('RunDockerContainer') {
             steps {
                 script {
-                    docker.image('bouhmiid/easybq').run('-p 4451:4200')
+                    docker.image('bouhmiid/easybq').run('-p 4941:4200')
                 }
             }
-        }*/
+        }
          
         stage('NodeVersion') {
             steps {
