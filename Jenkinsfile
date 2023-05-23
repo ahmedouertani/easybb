@@ -37,12 +37,12 @@ pipeline {
             }
         }
 
-        /*stage('ExcuteSonarQubeReport') { //Installer les dépendances du projet
+        stage('ExcuteSonarQubeReport') { //Installer les dépendances du projet
             steps {
                 //nodejs(nodeJSInstallationName: 'nodejs-14'){
                 sh 'npm run sonar'
             }
-        }*/
+        }
 
         stage('Build') {
             steps {    
@@ -58,7 +58,9 @@ stage('UploadArtifactNexusRAW') {
         sh 'npm run build'
 
         // Déployer l'artefact sur Nexus
-        sh 'curl -v -u admin:bouhmidenaey97 --upload-file dist/TanitLab/* http://192.168.1.105:8081/repository/raw-repo/'
+        sh 'curl -v -u admin:bouhmidenaey97 --upload-file easybb/* http://192.168.1.105:8081/repository/raw-repo/'
+
+        //sh 'curl -v -u admin:bouhmidenaey97 --upload-file dist/TanitLab/* http://192.168.1.105:8081/repository/raw-repo/'
     }
 }
 
@@ -70,7 +72,9 @@ stage('UploadArtifactNexusNPM') {
         sh 'npm run build'
 
         // Déployer l'artefact sur Nexus
-        sh 'curl -v -u admin:bouhmidenaey97 --upload-file dist/TanitLab/* http://192.168.1.105:8081/repository/npm-repo/'
+        sh 'curl -v -u admin:bouhmidenaey97 --upload-file easybb/* http://192.168.1.105:8081/repository/raw-repo/'
+
+        //sh 'curl -v -u admin:bouhmidenaey97 --upload-file dist/TanitLab/* http://192.168.1.105:8081/repository/npm-repo/'
     }
 }
 
