@@ -56,7 +56,7 @@ stage('UploadArtifactNexus') {
         /*sh 'npm config set registry http://192.168.1.105:8081'
         sh 'npm install'
         sh 'npm run build'*/
-        sh 'npm config set http://192.168.1.105:8081:_authToken=[nexustanitlab]'
+        sh 'npm config set http://192.168.1.105:8081:_authToken=[YWRtaW46cGFzc3dvcmQ=]'
         sh 'npm publish --registry=http://192.168.1.105:8081/repository/npm-repo/ --access public'
     }
 }
