@@ -50,7 +50,7 @@ pipeline {
                 }
                 }
 
-stage('UploadArtifactNexus') {
+stage('UploadArtifactNexusRAW') {
     steps {
         // Reste des étapes de déploiement des artefacts
         sh 'npm config set registry http://192.168.1.105:8081'
@@ -59,6 +59,18 @@ stage('UploadArtifactNexus') {
 
         // Déployer l'artefact sur Nexus
         sh 'curl -v -u admin:bouhmidenaey97 --upload-file dist/* http://192.168.1.105:8081/repository/raw-repo/'
+    }
+}
+
+stage('UploadArtifactNexusNPM') {
+    steps {
+        // Reste des étapes de déploiement des artefacts
+        sh 'npm config set registry http://192.168.1.105:8081'
+        sh 'npm install'
+        sh 'npm run build'
+
+        // Déployer l'artefact sur Nexus
+        sh 'curl -v -u admin:bouhmidenaey97 --upload-file dist/* http://192.168.1.105:8081/repository/npm-repo/'
     }
 }
 
