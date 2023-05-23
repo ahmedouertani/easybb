@@ -58,9 +58,7 @@ stage('UploadArtifactNexusRAW') {
         sh 'npm run build'
 
         // Déployer l'artefact sur Nexus
-        sh 'curl -v -u admin:bouhmidenaey97 --upload-file easybb/* http://192.168.1.105:8081/repository/raw-repo/'
-
-        //sh 'curl -v -u admin:bouhmidenaey97 --upload-file dist/TanitLab/* http://192.168.1.105:8081/repository/raw-repo/'
+        sh 'curl -v -u admin:bouhmidenaey97 --upload-file dist/TanitLab/* http://192.168.1.105:8081/repository/raw-repo/'
     }
 }
 
@@ -72,18 +70,9 @@ stage('UploadArtifactNexusNPM') {
         sh 'npm run build'
 
         // Déployer l'artefact sur Nexus
-        sh 'curl -v -u admin:bouhmidenaey97 --upload-file easybb/* http://192.168.1.105:8081/repository/raw-repo/'
-
-        //sh 'curl -v -u admin:bouhmidenaey97 --upload-file dist/TanitLab/* http://192.168.1.105:8081/repository/npm-repo/'
+        sh 'curl -v -u admin:bouhmidenaey97 --upload-file dist/TanitLab/* http://192.168.1.105:8081/repository/npm-repo/'
     }
 }
-
-
-
-
-
-
-
 
 
         stage('BuildDockerImage') {
@@ -109,7 +98,7 @@ stage('UploadArtifactNexusNPM') {
         stage('RunDockerContainer') {
             steps {
                 script {
-                    docker.image('bouhmiid/easybq').run('-p 4511:4200')
+                    docker.image('bouhmiid/easybq').run('-p 4941:4200')
                 }
             }
         }
