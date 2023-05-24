@@ -37,6 +37,11 @@ pipeline {
             }
         }
 
+                stage('NodeVersion') {
+            steps {
+                sh'node -v' }
+                }
+
         stage('ExcuteSonarQubeReport') { //Installer les dépendances du projet
             steps {
                 //nodejs(nodeJSInstallationName: 'nodejs-14'){
@@ -62,7 +67,7 @@ stage('UploadArtifactNexusRAW') {
     }
 }
 
-stage('UploadArtifactNexusNPM') {
+/*stage('UploadArtifactNexusNPM') {
     steps {
         // Reste des étapes de déploiement des artefacts
         sh 'npm config set registry http://192.168.1.105:8081'
@@ -72,7 +77,7 @@ stage('UploadArtifactNexusNPM') {
         // Déployer l'artefact sur Nexus
         sh 'curl -v -u admin:bouhmidenaey97 --upload-file dist/TanitLab/* http://192.168.1.105:8081/repository/npm-repo/'
     }
-}
+}*/
 
 
         stage('BuildDockerImage') {
@@ -98,15 +103,12 @@ stage('UploadArtifactNexusNPM') {
         stage('RunDockerContainer') {
             steps {
                 script {
-                    docker.image('bouhmiid/easybq').run('-p 4444:4200')
+                    docker.image('bouhmiid/easybq').run('-p 5552:4200')
                 }
             }
         }
          
-        stage('NodeVersion') {
-            steps {
-                sh'node -v' }
-                }
+
 
                 }
     
