@@ -121,11 +121,3 @@ stage('UploadArtifactNexusRAW') {
         }
     }
 }
-
-
-tee -a /etc/prometheus/prometheus.yml <<EOF
-- job_name: jenkins
-  metrics_path: /prometheus
-  static_configs:
-  - targets: ['192.168.1.105:8080']
-EOF
