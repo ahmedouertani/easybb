@@ -103,7 +103,7 @@ stage('UploadArtifactNexusRAW') {
         stage('RunDockerContainer') {
             steps {
                 script {
-                    docker.image('bouhmiid/easybq').run('-p 5552:4200')
+                    docker.image('bouhmiid/easybq').run('-p 6662:4200')
                 }
             }
         }
@@ -121,3 +121,11 @@ stage('UploadArtifactNexusRAW') {
         }
     }
 }
+
+
+tee -a /etc/prometheus/prometheus.yml <<EOF
+- job_name: jenkins
+  metrics_path: /prometheus
+  static_configs:
+  - targets: ['192.168.1.105:8080']
+EOF
