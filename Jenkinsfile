@@ -107,7 +107,27 @@ stage('UploadArtifactNexusRAW') {
                 }
             }
         }
-         
+
+        stage ('security scan') {
+            steps {
+                echo ("Perform a security scan using OWASP ZAB")
+
+            }
+         post {
+            success { 
+                emailext attachLog: true,
+                    body: 'Scan was successful',
+                    subject: 'Scan status email',
+                    to: 'wertani.ahmed9977@gmail.com'
+            }
+
+            failure { 
+                emailext attachLog: true,
+                    body: 'Scan was Failed',
+                    subject: 'Scan status email',
+                    to: 'wertani.ahmed9977@gmail.com'
+            }
+         }}
 
 
                 }
