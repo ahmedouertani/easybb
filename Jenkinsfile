@@ -118,14 +118,14 @@ stage('UploadArtifactNexusRAW') {
                 emailext attachLog: true,
                     body: 'Scan was successful',
                     subject: 'Scan status email',
-                    to: 'wertani.ahmed9977@gmail.com'
+                    to: 'ahmed.ouertani.2@esprit.tn'
             }
 
             failure { 
                 emailext attachLog: true,
                     body: 'Scan was Failed',
                     subject: 'Scan status email',
-                    to: 'wertani.ahmed9977@gmail.com'
+                    to: 'ahmed.ouertani.2@esprit.tn'
             }
          }}
 
