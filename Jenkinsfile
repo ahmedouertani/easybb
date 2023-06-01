@@ -69,14 +69,14 @@ pipeline {
 
 stage('DeploytoNexus 2') {
   steps {
-    nexusUpload(
+
       sh 'npm config set registry http://192.168.1.105:8081'
       sh 'npm install'
-        sh 'npm run build'
+      sh 'npm run build'
 
         // Déployer l'artefact sur Nexus
         sh 'curl -v -u admin:bouhmidenaey97 --upload-file tanitlab-1.0.0.tgz http://192.168.1.105:8081/repository/npm-repo/'
-    )
+    
   }
 }
 
