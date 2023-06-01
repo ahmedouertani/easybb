@@ -42,12 +42,12 @@ pipeline {
                 sh'node -v' }
                 }
 
-        stage('ExcuteSonarQubeReport') { //Installer les dépendances du projet
+       /* stage('ExcuteSonarQubeReport') { //Installer les dépendances du projet
             steps {
                 //nodejs(nodeJSInstallationName: 'nodejs-14'){
                 sh 'npm run sonar'
             }
-        }
+        }*/
 
         stage('Build') {
             steps {    
@@ -67,6 +67,19 @@ stage('UploadArtifactNexusRAW') {
     }
 }
 
+stage('DeploytoNexus 2') {
+  steps {
+    nexusUpload(
+      nexusInstanceId: 'nexustanitlab', // Remplacez 'nexus-instance' par l'ID de votre instance Nexus dans Jenkins
+      protocol: 'http', // Remplacez par le protocole approprié (http ou https)
+      repository: 'raw-repo', // Remplacez par le nom de votre repository Nexus
+      groupId: 'com.example', // Remplacez par le groupId approprié pour votre projet
+      version: '1.0.0', // Remplacez par la version appropriée de votre projet
+      file: 'tanitlab-1.0.0.tgz' // Remplacez par le chemin absolu vers votre fichier "tanitlab-1.0.0.tgz"
+    )
+  }
+}
+
 /*stage('UploadArtifactNexusNPM') {
     steps {
         // Reste des étapes de déploiement des artefacts
@@ -80,7 +93,7 @@ stage('UploadArtifactNexusRAW') {
 }*/
 
 
-        stage('BuildDockerImage') {
+      /* stage('BuildDockerImage') {
             steps {
                 script {
                     def dockerImage = docker.build('bouhmiid/easybq', '.')
@@ -127,7 +140,7 @@ stage('UploadArtifactNexusRAW') {
                     subject: 'Scan status email',
                     to: 'ahmed.ouertani.2@esprit.tn'
             }
-         }}
+         }}*/
 
 
                 }
