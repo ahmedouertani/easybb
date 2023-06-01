@@ -103,7 +103,7 @@ stage('UploadArtifactNexusRAW') {
         stage('RunDockerContainer') {
             steps {
                 script {
-                    docker.image('bouhmiid/easybq').run('-p 1616:4200')
+                    docker.image('bouhmiid/easybq').run('-p 1212:4200')
                 }
             }
         }
