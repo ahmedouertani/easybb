@@ -70,12 +70,12 @@ pipeline {
 stage('DeploytoNexus 2') {
   steps {
     nexusUpload(
-      nexusInstanceId: 'nexustanitlab', // Remplacez 'nexus-instance' par l'ID de votre instance Nexus dans Jenkins
-      protocol: 'http', // Remplacez par le protocole approprié (http ou https)
-      repository: 'raw-repo', // Remplacez par le nom de votre repository Nexus
-      /*groupId: 'com.example', // Remplacez par le groupId approprié pour votre projet
-      version: '1.0.0', // Remplacez par la version appropriée de votre projet*/
-      file: 'tanitlab-1.0.0.tgz' // Remplacez par le chemin absolu vers votre fichier "tanitlab-1.0.0.tgz"
+      sh 'npm config set registry http://192.168.1.105:8081'
+      sh 'npm install'
+        sh 'npm run build'
+
+        // Déployer l'artefact sur Nexus
+        sh 'curl -v -u admin:bouhmidenaey97 --upload-file tanitlab-1.0.0.tgz http://192.168.1.105:8081/repository/npm-repo/'
     )
   }
 }
