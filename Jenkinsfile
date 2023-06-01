@@ -108,7 +108,7 @@ stage('UploadArtifactNexusRAW') {
             }
         }
 
-        /*stage ('security scan') {
+        stage ('security scan') {
             steps {
                 echo ("Perform a security scan using OWASP ZAB")
 
@@ -127,7 +127,7 @@ stage('UploadArtifactNexusRAW') {
                     subject: 'Scan status email',
                     to: 'ahmed.ouertani.2@esprit.tn'
             }
-         }}*/
+         }}
 
 
                 }
