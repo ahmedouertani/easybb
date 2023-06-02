@@ -63,7 +63,7 @@ stage('UploadArtifactNexusRAW') {
         sh 'npm run build'
 
         // Déployer l'artefact sur Nexus
-        sh 'curl -v -u admin:bouhmidenaey97 --upload-file dist/TanitLab/* http://192.168.1.105:8081/repository/raw-repo/'
+        sh 'curl -v -u admin:bouhmidenaey97 --upload-file C:/Users/Ameni AKKERI/Documents/GitHub/easybb/dist/TanitLab/* http://192.168.1.105:8081/repository/raw-repo/'
     }
 }
 
