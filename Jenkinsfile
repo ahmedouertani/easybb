@@ -126,6 +126,8 @@ stage('DeploytoNexus 2') {
             stage('Deploy') {
       steps {
         // Étape de déploiement de votre application
+        sh 'gcloud auth login'
+        sh 'gcloud config set account ahmed.ouertani.2@esprit.tn'
         sh 'gcloud app deploy --project=easybqahmed'
       }
     }
