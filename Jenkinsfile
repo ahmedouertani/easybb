@@ -134,7 +134,7 @@ stage('DeploytoNexus 2') {
             stage('Deploy') {
       steps {
         // Étape de déploiement de votre application
-       sh 'gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS'
+       sh "gcloud auth activate-service-account --key-file=${env.GOOGLE_APPLICATION_CREDENTIALS}"
         sh 'gcloud app deploy --project=easybqahmed'
       }
     }
