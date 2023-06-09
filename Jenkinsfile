@@ -123,11 +123,18 @@ stage('DeploytoNexus 2') {
             }
         }*/
 
+        stage('Set Environment Variables') {
+  steps {
+    script {
+      env.GOOGLE_APPLICATION_CREDENTIALS = 'C:/Users/Ameni AKKERI/Documents/GitHub/easybb/easybqahmed-2b00c9c723aa.json'
+    }
+  }
+}
+
             stage('Deploy') {
       steps {
         // Étape de déploiement de votre application
-        sh 'gcloud auth login --console-only'
-        sh 'gcloud config set account ahmed.ouertani.2@esprit.tn'
+       sh 'gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS'
         sh 'gcloud app deploy --project=easybqahmed'
       }
     }
