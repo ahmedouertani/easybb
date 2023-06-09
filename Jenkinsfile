@@ -126,7 +126,7 @@ stage('DeploytoNexus 2') {
         stage('Set Environment Variables') {
   steps {
     script {
-      env.GOOGLE_APPLICATION_CREDENTIALS = 'C:/Users/Ameni AKKERI/Documents/GitHub/easybb/easybqahmed-2b00c9c723aa.json'
+      env.GOOGLE_APPLICATION_CREDENTIALS = '"C:/Users/Ameni AKKERI/Documents/GitHub/easybb/easybqahmed-2b00c9c723aa.json"'
     }
   }
 }
