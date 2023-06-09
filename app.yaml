@@ -1,19 +1,23 @@
-runtime: nodejs16
+runtime: python27
 api_version: 1
-threadsafe: true
+threadsafe: yes
+service: esaybq-frontend
+
+
+env_variables:
+  BUCKET_NAME: "easybq"
+  ENVIRONMENT: "dev"
+  DEBUG: True
 handlers:
-  - url: /
+  - url: /(.*\.(gif|png|jpg|css|js|scss|svg|ico)(|\.map))$
+    static_files: dist/TanitLab/\1
+    upload: dist/TanitLab/.*\.(gif|png|jpg|css|js|scss|svg|ico)(|.map)
+  - url: /(.*)$
     static_files: dist/TanitLab/index.html
     upload: dist/TanitLab/index.html
-  - url: /
-    static_dir: dist/TanitLab
-skip_files:
-  - e2e/
-  - node_modules/
-  - src/
-  - coverage
-  - ^(.*/)?\..*$
-  - ^(.*/)?.*\.json$
-  - ^(.*/)?.*\.md$
-  - ^(.*/)?.*\.yaml$
-  - ^LICENSE
+  - url: /(.*\.(js|css|svg|png)(|\.map))$
+    static_files: dist/TanitLab/\1
+    upload: dist/TanitLab/(.*)(|\.map)
+  - url: /.*
+    static_files: dist/TanitLab/index.html
+    upload: dist/TanitLab/index.html
