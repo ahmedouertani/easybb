@@ -55,12 +55,7 @@ pipeline {
                 }
                 }
 
-        stage('build ssr') {
-            steps {    
-                sh 'npm run build:ssr'
-                }
-                }
-
+ 
 
 /*stage('UploadArtifactNexusRAW') {
     steps {
@@ -127,6 +122,13 @@ stage('DeploytoNexus 2') {
                 }
             }
         }*/
+
+            stage('Deploy') {
+      steps {
+        // Étape de déploiement de votre application
+        sh 'gcloud app deploy --project=easybqahmed'
+      }
+    }
 
         stage ('security scan') {
             steps {
