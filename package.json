@@ -18,7 +18,9 @@
     "test-karma": "ng test --watch=false --code-coverage",
     "dev": "webpack --config=Scripts/config/webpack.dev.js --watch",
     "build1": "webpack --config=Scripts/config/webpack.prod.js",
-    "test1": "echo \"Error: no test specified\" && exit 1"
+    "test1": "echo \"Error: no test specified\" && exit 1",
+    "build:ssr": "ng build --configuration=production --output-hashing=all",
+    "deploy": "gcloud app deploy --project=easybqahmed"
   },
   "public": true,
   "dependencies": {
