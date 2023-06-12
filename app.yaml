@@ -1,7 +1,6 @@
 runtime: python27
 api_version: 1
 threadsafe: yes
-service: esaybq-frontend
 
 
 env_variables:
@@ -20,4 +19,4 @@ handlers:
     upload: dist/TanitLab/(.*)(|\.map)
   - url: /.*
     static_files: dist/TanitLab/index.html
-    upload: dist/TanitLab/index.html
+    upload: dist/TanitLab/index.html  
