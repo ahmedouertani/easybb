@@ -123,7 +123,7 @@ stage('DeploytoNexus 2') {
             }
         }*/
 
-        stage('Set Environment Variables') {
+        /*stage('Set Environment Variables') {
   steps {
     script {
       env.GOOGLE_APPLICATION_CREDENTIALS = 'easybqahmed-2b00c9c723aa.json'
@@ -134,10 +134,21 @@ stage('DeploytoNexus 2') {
             stage('Deploy') {
       steps {
         // Étape de déploiement de votre application
-       sh "gcloud auth activate-service-account --key-file=${env.GOOGLE_APPLICATION_CREDENTIALS}"
+        sh "gcloud auth activate-service-account --key-file=${env.GOOGLE_APPLICATION_CREDENTIALS}"
         sh 'gcloud app deploy --project=easybqahmed'
       }
-    }
+    }*/
+
+    stage('Build and Deploy') {
+            steps {
+                script {
+                    // Installe les dépendances et construit le projet Angular
+                    sh 'gcloud builds submit --config=cloudbuild.yaml .'
+                }
+            }
+        }
+
+
 
         /*stage ('security scan') {
             steps {
