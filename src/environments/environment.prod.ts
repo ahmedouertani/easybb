@@ -3,7 +3,7 @@ export const environment = {
   appVersion: 'v8.1.0',
   USERDATA_KEY: 'authf649fc9a5f55',
   isMockEnabled: true,
-  apiUrl: 'https://bqls-368213.lm.r.appspot.com/',
+  apiUrl: 'https://easy-bq-backend-dot-bqls-368213.lm.r.appspot.com',
   firebaseConfig: {
     apiKey: "AIzaSyAV0GEjjV1aTNpLYxj28e1GVZyZ-qc0Ybs",
     authDomain: "tanitlabschool-dev.firebaseapp.com",

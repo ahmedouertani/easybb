@@ -7,16 +7,16 @@ export const environment = {
   appVersion: 'v8.1.0',
   USERDATA_KEY: 'authf649fc9a5f55',
   isMockEnabled: true,
-  apiUrl: 'https://bqds-backend-dot-tanitlabschool-dev.appspot.com',
+  apiUrl: 'https://easy-bq-backend-dot-bqls-368213.lm.r.appspot.com',
 
   firebaseConfig: {
-      apiKey: "AIzaSyAV0GEjjV1aTNpLYxj28e1GVZyZ-qc0Ybs",
-      authDomain: "tanitlabschool-dev.firebaseapp.com",
-      databaseURL: "https://tanitlabschool-dev.firebaseio.com",
-      projectId: "tanitlabschool-dev",
-      storageBucket: "tanitlabschool-dev.appspot.com",
-      messagingSenderId: "1042640352492",
-      appId: "1:1042640352492:web:dd687d1cdc51a72b95e1c9"
+    apiKey: "AIzaSyCyfTkKG18baK-NIzS14SqgYziH_iEv_QQ",
+    authDomain: "bqls-test217.firebaseapp.com",
+    projectId: "bqls-test217",
+    storageBucket: "bqls-test217.appspot.com",
+    messagingSenderId: "238773999299",
+    appId: "1:238773999299:web:d54fec8b37334dfea0f476",
+    measurementId: "G-JYD6B3N3FB"
   },
   appThemeName: 'Metronic',
   appPurchaseUrl: 'https://1.envato.market/EA4JP',
