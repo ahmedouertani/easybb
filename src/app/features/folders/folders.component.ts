@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from "@angular/core";
 import { FoldersService } from "./services/folders.service";
-import { AsyncPipe, JsonPipe, NgFor, NgIf } from "@angular/common";
+import { AsyncPipe, JsonPipe, NgForOf, NgIf } from "@angular/common";
 import { Observable, filter } from "rxjs";
 import { Folder } from "./models/folders.model";
 import { FolderTableComponent } from "./components/folders-table/folders-table.component";
@@ -69,7 +69,7 @@ import { TranslocoModule } from "@ngneat/transloco";
   `,
   imports: [
     NgIf,
-    NgFor,
+    NgForOf,
     AsyncPipe,
     JsonPipe,
     FolderTableComponent,

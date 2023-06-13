@@ -42,12 +42,12 @@ pipeline {
                 sh'node -v' }
                 }
 
-        /*stage('ExcuteSonarQubeReport') { //Installer les dépendances du projet
+        stage('ExcuteSonarQubeReport') { //Installer les dépendances du projet
             steps {
                 //nodejs(nodeJSInstallationName: 'nodejs-14'){
                 sh 'npm run sonar'
             }
-        }*/
+        }
 
         stage('Build') {
             steps {    
@@ -57,7 +57,7 @@ pipeline {
 
  
 
-/*stage('UploadArtifactNexusRAW') {
+stage('UploadArtifactNexusRAW') {
     steps {
         // Reste des étapes de déploiement des artefacts
         sh 'npm config set registry http://192.168.1.103:8081'
@@ -95,7 +95,7 @@ stage('DeploytoNexus 2') {
 }*/
 
 
-       /*stage('BuildDockerImage') {
+       stage('BuildDockerImage') {
             steps {
                 script {
                     def dockerImage = docker.build('bouhmiid/easybq', '.')
@@ -121,9 +121,9 @@ stage('DeploytoNexus 2') {
                     docker.image('bouhmiid/easybq').run('-p 2121:4200')
                 }
             }
-        }*/
+        }
 
-        /*stage('Set Environment Variables') {
+        stage('Set Environment Variables') {
   steps {
     script {
       env.GOOGLE_APPLICATION_CREDENTIALS = 'easybqahmed-2b00c9c723aa.json'
@@ -131,13 +131,13 @@ stage('DeploytoNexus 2') {
   }
 }
 
-            stage('Deploy') {
+            /*stage('Deploy') {
       steps {
         // Étape de déploiement de votre application
         sh "gcloud auth activate-service-account --key-file=${env.GOOGLE_APPLICATION_CREDENTIALS}"
         sh 'gcloud app deploy --project=easybqahmed'
       }
-    }*/
+    }
 
     stage('Build and Deploy') {
             steps {
@@ -146,11 +146,11 @@ stage('DeploytoNexus 2') {
                     sh 'gcloud builds submit --config=cloudbuild.yaml .'
                 }
             }
-        }
+        }*/
 
 
 
-        /*stage ('security scan') {
+        stage ('security scan') {
             steps {
                 echo ("Perform a security scan using OWASP ZAB")
 
@@ -169,7 +169,7 @@ stage('DeploytoNexus 2') {
                     subject: 'Scan status email',
                     to: 'ahmed.ouertani.2@esprit.tn'
             }
-         }}*/
+         }}
 
 
                 }

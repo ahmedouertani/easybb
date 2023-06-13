@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { UsersService } from './services/users.service';
-import { AsyncPipe, JsonPipe, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe, JsonPipe, NgForOf, NgIf } from '@angular/common';
 import { Observable, filter } from 'rxjs';
 import { UsersTableComponent } from './components/users-table/users-table.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -66,7 +66,7 @@ import { Profile} from 'src/app/models/profile.model';
   ],
   imports: [
     NgIf,
-    NgFor,
+    NgForOf,
     AsyncPipe,
     JsonPipe,
     UsersTableComponent,
