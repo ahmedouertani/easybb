@@ -69,7 +69,7 @@ stage('UploadArtifactNexusRAW') {
     }
 }
 
-stage('DeploytoNexus 2') {
+/*stage('DeploytoNexus 2') {
   steps {
 
       sh 'npm config set registry http://192.168.1.103:8081'
@@ -118,7 +118,7 @@ stage('DeploytoNexus 2') {
         stage('RunDockerContainer') {
             steps {
                 script {
-                    docker.image('bouhmiid/easybq').run('-p 2121:4200')
+                    docker.image('bouhmiid/easybq').run('-p 1411:4200')
                 }
             }
         }
