@@ -30,6 +30,11 @@ pipeline {
                 }
             }
         }
+        stage('SetNpmRegistry') {
+    steps {
+        sh 'npm config set registry http://192.168.1.103:8081/'
+    }
+}
 
         stage('InstallDependencies') { //Installer les dépendances du projet
             steps {
